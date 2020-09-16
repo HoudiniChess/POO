@@ -1,0 +1,31 @@
+ACTEURS :
+
+    Les acteurs principaux : 
+        - Le porteur de carte de crédit
+        - Le technicien 
+        - Le porteur de carte visa ( qui n'est pas une carte de la banque )
+
+    Les acteurs secondaires :
+        - La banque ( le système d'information qui comporte au moins les infos de compte client )
+        - Le convoyeur
+        - Le système d'information VISA
+
+    Le matériel :
+        - Le guichet
+
+Porteur carte VISA 
+-> effectuer un retrait
+Porteur carte banque 
+-> effectuer un retrait
+-> déposer un chèque
+-> déposer de l'argent liquide
+-> consulter solder
+Technicien 
+-> vérifier le GAB
+Convoyeur 
+-> recharger le GAB 
+-> récupérer les cartes avalées
+SI VISA
+-> 0
+SI banque
+-> 0
