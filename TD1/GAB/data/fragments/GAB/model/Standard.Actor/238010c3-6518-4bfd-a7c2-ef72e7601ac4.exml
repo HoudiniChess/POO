@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="S.I.Banque" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="S.I.VISA" version="4">
   <OBJECT>
-    <ID name="S.I.Banque" mc="Standard.Actor" uid="238010c3-6518-4bfd-a7c2-ef72e7601ac4"/>
+    <ID name="S.I.VISA" mc="Standard.Actor" uid="238010c3-6518-4bfd-a7c2-ef72e7601ac4"/>
     <PID name="gab" mc="Standard.Package" uid="335cc796-4b03-4b04-aeb0-11b19cddb619"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[S.I.Banque]]></ATT>
+      <ATT name="Name"><![CDATA[S.I.VISA]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

@@ -16,16 +16,25 @@
       <COMP relation="OwnedElement">
         <COMPID name="GAB" mc="Standard.Class" uid="97e45f70-a581-450e-9ce2-32ab90892371"/>
         <COMPID name="Porteur C.banque" mc="Standard.Actor" uid="74157409-d2c1-4451-96df-c5888155ef55"/>
-        <COMPID name="Porteur C.VISA" mc="Standard.Actor" uid="a5cf9cdb-b181-4388-9378-4b448f8b97a3"/>
+        <COMPID name="Technicien" mc="Standard.Actor" uid="a5cf9cdb-b181-4388-9378-4b448f8b97a3"/>
         <COMPID name="Convoyeur" mc="Standard.Actor" uid="e9ad3c4b-a13a-4757-9d51-9aefa1fb6d51"/>
-        <COMPID name="Technicien" mc="Standard.Actor" uid="d153fb05-3b4c-4077-93b8-6c82b6278533"/>
-        <COMPID name="S.I.Banque" mc="Standard.Actor" uid="238010c3-6518-4bfd-a7c2-ef72e7601ac4"/>
-        <COMPID name="SI..VISA" mc="Standard.Actor" uid="432335b7-a29a-4a04-b0c2-2521b6fc0171"/>
+        <COMPID name="Porteur C.VISA" mc="Standard.Actor" uid="d153fb05-3b4c-4077-93b8-6c82b6278533"/>
+        <COMPID name="S.I.VISA" mc="Standard.Actor" uid="238010c3-6518-4bfd-a7c2-ef72e7601ac4"/>
+        <COMPID name="SI.Banque" mc="Standard.Actor" uid="432335b7-a29a-4a04-b0c2-2521b6fc0171"/>
         <COMPID name="Humain" mc="Standard.Actor" uid="4fc963d7-b7e5-4685-938b-6b7f088a841d"/>
+        <COMPID name="Effectuer un retrait avec VISA" mc="Standard.UseCase" uid="0f65b036-c19a-4796-833f-6220aa7beceb"/>
+        <COMPID name="Déposer de l'argent liquide" mc="Standard.UseCase" uid="d55978cc-c990-4f81-b7a5-3373da0bccbd"/>
+        <COMPID name="Consultet le solde" mc="Standard.UseCase" uid="e68797ec-38e0-4ec8-b73a-bb59102e83bd"/>
+        <COMPID name="Vérifier le GAB" mc="Standard.UseCase" uid="298ad0e7-7e27-403a-ae83-0796c6f59f78"/>
+        <COMPID name="Déposer un chèque" mc="Standard.UseCase" uid="95ecd9b9-6411-4aaa-b026-5782999a84f8"/>
+        <COMPID name="Récupérer les cartes" mc="Standard.UseCase" uid="d6fbacd1-8b8f-48fa-af41-adb278b6a565"/>
+        <COMPID name="Recharger le GAB" mc="Standard.UseCase" uid="fbded4fc-e401-40b2-bb00-53227ca190fc"/>
+        <COMPID name="Effecuer un retrait avec C.Banque" mc="Standard.UseCase" uid="2d4b5565-61fa-42d0-a056-cf8abee365a6"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Contexte statique" mc="Standard.ClassDiagram" uid="851ea204-a838-4569-9f52-9f05f8b86319"/>
         <COMPID name="Contexte statique BIS" mc="Standard.ClassDiagram" uid="34e083d9-4181-45cd-bd51-deb4cef66246"/>
+        <COMPID name="Diagramme de cas d'utilisation gab" mc="Standard.UseCaseDiagram" uid="dfa72bdc-3cb6-4306-bca0-d431dae778d7"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
