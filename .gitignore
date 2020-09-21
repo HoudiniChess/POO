@@ -40,3 +40,6 @@ pom.xml.tag
 
 # Plugins
 .sonarlint
+
+# txt
+.exml
