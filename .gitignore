@@ -42,37 +42,16 @@ pom.xml.tag
 .sonarlint
 
 # txt
-.exml
-/GAB/data/fragments/ModelerModule/content/model/model/Infrastructure.Stereotype/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/*.xml
+
 /GAB/data/fragments/PredefinedTypes 3.9.00/content/model/.index/*.0
 /GAB/data/fragments/PredefinedTypes 3.9.00/content/model/.index/*.t
 /GAB/data/fragments/PredefinedTypes 3.9.00/content/model/admin/*.dat
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/admin/*.xml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Infrastructure.EnumeratedPropertyType/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Infrastructure.MetaclassReference/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Infrastructure.ModuleComponent/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Infrastructure.Profile/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Infrastructure.PropertyTableDefinition/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Infrastructure.PropertyType/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Standard.Artifact/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Standard.DataType/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Standard.Package/*.exml
-/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/model/Standard.Project/*.exml
+
 /GAB/data/localmodel/*.0
 /GAB/data/localmodel/*.t
 /GAB/*.conf
 /TD1/GAB/.runtime/fragments/GAB/.index/*.0
-/TD1/GAB/data/fragments/GAB/model/Infrastructure.DiagramSet/*.exml
-/TD1/GAB/data/fragments/GAB/model/Infrastructure.ModuleComponent/*.exml
-/TD1/GAB/data/fragments/GAB/model/Infrastructure.Profile/*.exml
-/TD1/GAB/data/fragments/GAB/model/Infrastructure.Stereotype/*.exml
-/TD1/GAB/data/fragments/GAB/model/Standard.Actor/*.exml
-/TD1/GAB/data/fragments/GAB/model/Standard.ClassDiagram/*.exml
-/TD1/GAB/data/fragments/GAB/model/Standard.Package/*.exml
-/TD1/GAB/data/fragments/GAB/model/Standard.Project/*.exml
-/TD1/GAB/data/fragments/GAB/model/Standard.UseCase/*.exml
-/TD1/GAB/data/fragments/GAB/model/Standard.UseCaseDiagram/*.exml
+
 /TD1/GAB/data/fragments/ModelerModule/content/model/.index/*.0
 /TD1/GAB/data/fragments/PredefinedTypes 3.9.00/content/model/.index/*.0
 /TD1/GAB/data/localmodel/*.0

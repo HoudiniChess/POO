@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="gab" version="4">
+  <OBJECT>
+    <ID name="gab" mc="Standard.Package" uid="2997aa99-1cc2-4364-972d-76f51fd2bed0"/>
+    <PID name="GAB" mc="Standard.Project" uid="12170051-5f05-4199-8bdb-f5b19f2dc6c7"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[gab]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="GAB" mc="Standard.Class" uid="6f0b93ea-5074-4bf5-b9b9-bb8a407ba2ed"/>
+        <COMPID name="Convoyeur" mc="Standard.Actor" uid="e4535127-1ea7-4dae-843a-bb2cf6d039c4"/>
+        <COMPID name="Porteur C. VISA" mc="Standard.Actor" uid="2faac6d9-4847-43dd-838a-d1ab9d7d7d80"/>
+        <COMPID name="Porteur C. banque" mc="Standard.Actor" uid="d8614088-caea-4cf3-96f8-78af98aaa315"/>
+        <COMPID name="Technicien" mc="Standard.Actor" uid="74f71b19-e312-44f3-ae4c-a62c86a72ca3"/>
+        <COMPID name="S. I. banque" mc="Standard.Actor" uid="f30d6843-e7b8-47ed-be11-aa4bdcdf2099"/>
+        <COMPID name="S. I. VISA" mc="Standard.Actor" uid="c701fe4a-afc0-4c2b-99e0-2e864325fd26"/>
+        <COMPID name="Humain" mc="Standard.Actor" uid="3fc98286-49df-4e8d-ae0b-4cdee425893d"/>
+        <COMPID name="effectuer un retrait avec VISA" mc="Standard.UseCase" uid="f673299b-1d42-435f-b1ab-75b6975f38b0"/>
+        <COMPID name="déposer un chèque" mc="Standard.UseCase" uid="1c5cfbec-7be5-41af-adc7-a112fc9de3a3"/>
+        <COMPID name="déposer de l'argent liquide" mc="Standard.UseCase" uid="430bfe70-d843-43a2-9c04-6d86e8db4b22"/>
+        <COMPID name="consulter le solde" mc="Standard.UseCase" uid="184811e5-dd4a-44d7-95b1-4144ba8ce1a9"/>
+        <COMPID name="vérifier le GAB" mc="Standard.UseCase" uid="4cf9df27-b91f-4744-a99c-f19dc4f401a0"/>
+        <COMPID name="récupérer les cartes" mc="Standard.UseCase" uid="7dc2bf58-d384-46a0-96a2-1feb38b5b065"/>
+        <COMPID name="recharger le GAB" mc="Standard.UseCase" uid="4cd9b910-aa1e-4171-b77e-8d640fffac0a"/>
+        <COMPID name="effectuer un retrait avec C. banque" mc="Standard.UseCase" uid="0dc1b9b0-28b1-4491-a077-76e4356d6e3c"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Contexte statique" mc="Standard.ClassDiagram" uid="e10809fa-6811-417a-be47-07e4e474f34e"/>
+        <COMPID name="Cas d'utilisation du GAB" mc="Standard.UseCaseDiagram" uid="04bdcce6-233f-42ed-80fa-a1caa96ac75e"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

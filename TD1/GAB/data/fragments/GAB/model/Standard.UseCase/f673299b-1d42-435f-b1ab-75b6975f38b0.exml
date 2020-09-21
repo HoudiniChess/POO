@@ -1,0 +1,362 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="effectuer un retrait avec VISA" version="4">
+  <OBJECT>
+    <ID name="effectuer un retrait avec VISA" mc="Standard.UseCase" uid="f673299b-1d42-435f-b1ab-75b6975f38b0"/>
+    <PID name="gab" mc="Standard.Package" uid="2997aa99-1cc2-4364-972d-76f51fd2bed0"/>
+    <ATTRIBUTES>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[effectuer un retrait avec VISA]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <OBJECT>
+          <ID name="" mc="Standard.AssociationEnd" uid="c9f47a4e-b050-4e23-a252-25bea057b8a3"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="S. I. VISA" mc="Standard.Actor" uid="c701fe4a-afc0-4c2b-99e0-2e864325fd26"/>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID name="" mc="Standard.AssociationEnd" uid="f9ab34be-3ad9-483d-8332-5104af451dd6"/>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID name="" mc="Standard.AssociationEnd" uid="c9f47a4e-b050-4e23-a252-25bea057b8a3"/>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID name="" mc="Standard.Association" uid="5043fdb0-0b73-4659-841c-69fddfd8e3cf"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID name="" mc="Standard.Association" uid="5043fdb0-0b73-4659-841c-69fddfd8e3cf"/>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Standard.AssociationEnd" uid="6e6950ce-a4c6-456d-992d-5accf1bae7de"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="S. I. banque" mc="Standard.Actor" uid="f30d6843-e7b8-47ed-be11-aa4bdcdf2099"/>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID name="" mc="Standard.AssociationEnd" uid="56f806f0-6aa6-4eb4-b3d2-f51fc55dcb03"/>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID name="" mc="Standard.AssociationEnd" uid="6e6950ce-a4c6-456d-992d-5accf1bae7de"/>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID name="" mc="Standard.Association" uid="f19c12f2-914c-43b2-813f-12de5737de05"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID name="" mc="Standard.Association" uid="f19c12f2-914c-43b2-813f-12de5737de05"/>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="c3df3004-67a7-4dd7-a6b3-7c254dac0e0e"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[NOM : effectuer un retrait avec une  carte VISA
+
+RESUME : le porteur de carte VISA souhaite effectuer un retrait. Il ....
+
+DATE : 16/09/2020
+
+VERSION : 1.0
+
+AUTEUR : MK
+
+....
+
+
+---------------------------------------------------------------------------------------------------
+
+SCENARIOS
+
+
+Scénario nominal
+
+x. QUI fait QUOI ?
+x+1. QUI fait QUOI ?
+etc.
+
+1. Le porteur de cate VISA inère sa carte dans le lecteur du GAB.
+2. Le GAB vérifie que la carte insérée est bien une carte VISA en lisant de code identifiant stocké sur la puce.
+2.5 Le GAB vérifie que le compteur d'erreurs sur la puce est inférieur à 3
+3. Le GAB demande au porteur de carte VISA de saisir son code en affichant le message M1.
+4. Le porteur de carte VISA indique son code ("indique" = cf. contraintes d'IHM...), avant 10sec.
+5. Le GAB vérifie le code en cryptant le code fourni et en le comparant au code crypté stocké sur la puce (cf. contraintes non fonctionnelles pour les détails...).
+5.5 Le GAB remet à 0 le compteur d'erreurs sur la puce de la carte
+6. Le GAB demande au SI VISA si le compte du client identifié peut être débité  ("demande"= cf. contraintes non fonctionelles...).
+7. Le SI VISA répond OK dans la limite de telle somme ("répond".....).
+8. Le GAB demande au porteur de carte le montant qu'il désire retirer ("demande"= cf. contraintes d'IHM...).
+9. Le porteur de carte VISA indique le montant ("indique" = cf. contraintes d'IHM...), avant 10sec
+10. Le GAB vérifie que le montant indiqué est inférieur au montant max indiqué par VISA.
+11. Le GAB dezmande au poorteur de carte s'il veut un ticket.
+12. Le porteur de carte VISA répond OK.
+13. Le GAB éjecte la carte et invite le porteur de carte à la récupérer ("invite"....).
+14. Le porteur de carte récupère sa carte.
+15. Le GAB ejecte les billets
+16. Le porteur de carte VISA prend les billets.
+17. Le GAB imprime le ticket.
+18. Le SI VISA est informé de la transaction.
+19. Le SI de la banque est informé de la transaction
+FIN
+
+Scénarios d'exceptions
+
+E1 : "Carte VISA non reconnue"
+-> commence après le point 2 du scénario nominal
+1. Le GAB "informe" le porteur de carte que sa carte est inconnue
+2. Le GAB éjecte la carte et invite le porteur de carte à la récupèrer ("invite"...).
+3. Le porteur de carte récupère sa carte
+FIN
+
+E2 : "Le porteur de carte demande l'annulation"
+-> commence après le point 3 ou 8 du scénario nominal
+1. Le porteur de carte VISA demande l'annulation ("demande" = cf : contrainte d'IHM...), avant 10sec
+2. Le  GAB "confime" la demande d'annulation
+3. Le GAB éjecte la carte et invite le porteur de carte à la récupérer ("invite"...).
+4. Le porteur de carte récupère sa carte.
+FIN
+
+E3 : "Annulation due à un délai dépassé"
+-> commence après le point 3 ou 8 du scénario nominal
+1. Le GAB "informe" le porteur de carte de l'annulation de la transaction à cause du délai dépassé
+2. Le GAB éjecte la carte et invite le porteur de carte à la récupérer ("invite"...).
+3. Le porteur de carte récupère sa carte
+FIN
+
+E4 : "Erreur de code pour la troisième fois"
+-> commence après le point 5 du scénario nominal
+1. Le GAB "informe" le porteur de carte que le code saisi est erroné et qu'il s'agit de sa troisème erreur (cf : contraintes techniques : lecture du compteur d'erreurs sur la puce) et que la carte ne sera pas rendue
+2. Le GAB incrémente le compteur d'errerurs sur la puce de la carte
+2. Le GAB transfere la carte du lecteur au conteneur de cartes avalées
+FIN
+
+E5 : "Le nombre d'erreurs est égale à 3"
+-> commence après le point 2.5 du scénario nominal
+1. Le GAB "informe" le porteur de carte que la carte est invalisée à cause de 3 essais de code erronés (cf : contraintes techniques : lecture du compteur d'erreurs sur la puce) et que la carte ne sera pas rendue
+2. Le GAB transfere la carte du lecteur au conteneur de cartes avalées
+FIN
+
+E6 : "Solde épuisé ou nombre de retraits max atteint"
+-> commence après le point 6 du scénario nominal
+1. Le SI VISA répond KO avec possibilité de rendre la carte (et le motif)
+2. Le GAB "informe" le porteur de carte qu'il ne peut pas retirer d'argent et indique la raison
+3. Le GAB éjecte la carte et invite le porteur de carte à la récupérer ("invite"...).
+4. Le porteur de la carte récupère sa carte
+FIN
+
+E7 : "Carte ou compte invalidé"
+-> commence après le point 6 du scénario nomunal
+1. Le SI VISA répond KO avec interdiction de rendre la carte (et le motif)
+2. Le GAB "informe" le porteur de carte qu'il ne peut pas retirer d'argent, indique la raison et indique que la carte ne sera pas rendue
+3. Le GAB transfert la carte du lecteur au conteneur de cartes avalées
+FIN
+
+
+Scénarios alternatifs
+
+A1 : "Erreur de code pour la première ou la deuxième fois"
+-> commence après le point 5 du scénario nominal
+1. Le GAB "informe" le porteur de carte que le code saisi est erroné et qu'il s'agit de sa première ou deuxième erreur (cf : contraintes techniques : lecture du compteur d'erreurs sur la puce)
+-> retour au point 3 du scénario nominal
+2. Le GAB incrémente le compteur d'erreurs sur la puce de la carte 
+-> retour au point 3 du scénario nominal
+
+
+A2 : "Montant trop élevé"
+-> commence après le point 10 du scénario nominal
+1. Le GAB "informe" le porteur de carte que le montant demandé est trop élevé et précise le montant max
+-> retour au point 8 du scénario nominal
+
+
+A3  : "Ticket non demandé"
+-> commence après le point 10 du scénario nominal
+1. Le porteur de carte VISA répond non.
+2. Le GAB éjecte la carte et invite le porteur de carte à la récupérer ("invite"....).
+3. Le porteur de carte récupère sa carte.
+4. Le GAB ejecte les billets
+5. Le porteur de carte VISA prend les billets.
+-> retour au point 18 du scénario nominal.
+
+]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="fcf71573-4c94-4112-964b-07c71c05129a"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[Contraintes d'IHM
+
+
+M1 (scénario nominal, action 3) : <description...>]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="constraint" mc="Infrastructure.NoteType" uid="00bc0b8c-0000-251b-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="52626ac7-4fd5-453b-ba69-16f08c245006"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[Scénario nominal, action 2 :
+
+Le GAB est muni d'un lecteur de carte à puces de type TRUC, contenant en particulier un CODE tel que, bla bla bla...
+
+Scénarion nominal, action 8 :
+
+La demande au SI est faite par l'intermédiaire du protocole XYZ sécurisé bla bla bla...]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="non-functional constraint" mc="Infrastructure.NoteType" uid="00bc0c08-0000-242c-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="74fab96d-9016-4154-b1a0-3c9b8b4b2700"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[...]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="exception" mc="Infrastructure.NoteType" uid="00bc0b8c-0000-2519-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="83c005b0-0d5c-46f4-884d-c718f8bd66a0"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[...]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="precondition" mc="Infrastructure.NoteType" uid="00bc0b8c-0000-2515-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="7d37f3e9-af9c-4431-8cfd-a097b547bda9"/>
+          <ATTRIBUTES>
+            <ATT name="Content"><![CDATA[...]]></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="postcondition" mc="Infrastructure.NoteType" uid="00bc0b8c-0000-2517-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
