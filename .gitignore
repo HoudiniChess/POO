@@ -42,7 +42,7 @@ pom.xml.tag
 .sonarlint
 
 # txt
-
+    
 /GAB/data/fragments/PredefinedTypes 3.9.00/content/model/.index/*.0
 /GAB/data/fragments/PredefinedTypes 3.9.00/content/model/.index/*.t
 /GAB/data/fragments/PredefinedTypes 3.9.00/content/model/admin/*.dat
