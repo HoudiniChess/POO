@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="PubliPhone" version="4">
+  <OBJECT>
+    <ID name="PubliPhone" mc="Standard.Project" uid="23d8bc03-a5e6-4ce4-a18b-807171046ed5"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[PubliPhone]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="publiphone" mc="Standard.Package" uid="8976dc8e-cb99-4d36-809a-0f415d8a5fae"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="PubliPhone" mc="Infrastructure.DiagramSet" uid="c69123b2-a3c0-491e-93a7-fda9253df879"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

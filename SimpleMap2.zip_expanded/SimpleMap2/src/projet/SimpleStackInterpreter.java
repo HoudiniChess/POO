@@ -84,9 +84,9 @@ public class SimpleStackInterpreter extends Visitor
   @Override
   public void visitVariable(Variable var)
   {
-    if (var.getName() != null)
+    if (!this.variableValues.containsKey(var.name))
     {
-      variables.put("", var);
+      variableValues.put(var.name, new IntExpr(0));
     }
   }
 

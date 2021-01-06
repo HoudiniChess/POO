@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fonctionnel" version="4">
+  <OBJECT>
+    <ID name="Fonctionnel" mc="Standard.Package" uid="6914ec14-3128-4a5f-bcd3-5b3fa3ea0f0c"/>
+    <PID name="publiphone" mc="Standard.Package" uid="8976dc8e-cb99-4d36-809a-0f415d8a5fae"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Fonctionnel]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Publiphone" mc="Standard.Class" uid="84d78f65-32af-4d01-95a4-45cbb4bd6d56"/>
+        <COMPID name="Appelant" mc="Standard.Actor" uid="e7222c59-2b51-4aeb-8050-e25e6fe96e2b"/>
+        <COMPID name="Correspondant" mc="Standard.Actor" uid="bf7c9df8-678d-4d1c-92cb-71b47b7a8af5"/>
+        <COMPID name="Standart" mc="Standard.Actor" uid="2acb1afe-55d4-4891-a4e2-472b03fb8f97"/>
+        <COMPID name="Appelle" mc="Standard.UseCase" uid="1ac9299a-9dc9-459b-b3fe-40ccd4356d6c"/>
+        <COMPID name="Décroche" mc="Standard.UseCase" uid="ffe24688-9747-4329-93f6-3e588ea28070"/>
+        <COMPID name="Utilisateur" mc="Standard.Actor" uid="2a9b111a-981e-47a3-a991-2bb79cac237c"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de cas d'utilisation fonctionnel" mc="Standard.UseCaseDiagram" uid="fe6d8f5a-f0fd-4592-8f2e-398c6f386330"/>
+        <COMPID name="Diagramme de contexte statique" mc="Standard.ClassDiagram" uid="16e98e3c-edf8-4fcd-bdbe-ddb03158e8a1"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

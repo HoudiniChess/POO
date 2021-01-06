@@ -1,0 +1,5 @@
+#Tue Jan 05 17:48:01 CET 2021
+org.modelio.diagram.editor.OpenedDiagrams3='Diagramme d'\u00E9tat State Machine' {ad5e32d0-aa85-4141-848e-c8d5bd0b6d18} Standard.StateMachineDiagram
+org.modelio.diagram.editor.OpenedDiagrams2='Diagramme de classe Structurel' {f6be1c62-a276-49a6-9b27-1993a0d4b3ef} Standard.ClassDiagram
+org.modelio.diagram.editor.OpenedDiagrams1='Diagramme de contexte statique' {16e98e3c-edf8-4fcd-bdbe-ddb03158e8a1} Standard.ClassDiagram
+org.modelio.diagram.editor.OpenedDiagrams0='Diagramme de cas d'utilisation fonctionnel' {fe6d8f5a-f0fd-4592-8f2e-398c6f386330} Standard.UseCaseDiagram

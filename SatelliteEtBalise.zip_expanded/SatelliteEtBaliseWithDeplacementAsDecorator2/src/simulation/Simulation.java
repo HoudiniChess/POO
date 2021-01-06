@@ -4,16 +4,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
+import behaviorStrategy.SatelliteMovement;
+import behaviorStrategy.VerticalMovement;
+import behaviorStrategy.Movement;
+import behaviorStrategy.HorizontalMovement;
 import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
-import model.Balise;
-import model.DeplHorizontal;
-import model.DeplSatellite;
-import model.DeplVertical;
-import model.Deplacement;
+import model.Beacon;
 import model.Manager;
-import model.Satelitte;
+import model.Satellite;
 
 public class Simulation {
 
@@ -31,8 +31,8 @@ public class Simulation {
 		}
 	}
 	
-	public void addBalise(GBounded sea, int memorySize, Point startPos, Deplacement depl) {		
-		Balise bal = new Balise(memorySize);
+	public void addBalise(GBounded sea, int memorySize, Point startPos, Movement depl) {		
+		Beacon bal = new Beacon(memorySize);
 		bal.setPosition(startPos);
 		bal.setDeplacement(depl);
 		manager.addBalise(bal);
@@ -42,9 +42,9 @@ public class Simulation {
 	}
 
 	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int vitesse) {		
-		Satelitte sat = new Satelitte(memorySize);
+		Satellite sat = new Satellite(memorySize);
 		sat.setPosition(startPos);
-		sat.setDeplacement(new DeplSatellite(-10,1000, vitesse));
+		sat.setDeplacement(new SatelliteMovement(-10,1000, vitesse));
 		manager.addSatellite(sat);
 		GrSatelitte grSat = new GrSatelitte();
 		grSat.setModel(sat);
@@ -66,11 +66,11 @@ public class Simulation {
 		this.addSatelitte(sky, 100000, new Point(400,90), 3);
 		this.addSatelitte(sky, 100000, new Point(500,140), 4);
 		this.addSatelitte(sky, 100000, new Point(600,10), 1);
-		this.addBalise(sea, 300, new Point(400,200), new DeplHorizontal(50,750));
-		this.addBalise(sea, 400, new Point(100,100), new DeplVertical(50, 200));
-		this.addBalise(sea, 200, new Point(0,160), new DeplHorizontal(0,800));
-		this.addBalise(sea, 500, new Point(200,100), new DeplVertical(130, 270));
-		this.addBalise(sea, 150, new Point(300,100), new DeplHorizontal(200, 600));
+		this.addBalise(sea, 300, new Point(400,200), new HorizontalMovement(50,750));
+		this.addBalise(sea, 400, new Point(100,100), new VerticalMovement(50, 200));
+		this.addBalise(sea, 200, new Point(0,160), new HorizontalMovement(0,800));
+		this.addBalise(sea, 500, new Point(200,100), new VerticalMovement(130, 270));
+		this.addBalise(sea, 150, new Point(300,100), new HorizontalMovement(200, 600));
 		this.world.open();
 		this.mainLoop();
 	}
