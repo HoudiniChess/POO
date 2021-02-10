@@ -1,6 +1,7 @@
 package model.meta;
 
-public interface ICommandLanguage
+public abstract class ICommandLanguage implements MMEntity
 {
-  public void accept(Visitor visitor);
+  @Override
+  public abstract void accept(Visitor visitor);
 }

@@ -7,6 +7,8 @@ public interface Visitor
 
   public void visitAssign(Assign assign);
 
+  public void visitScript(Script script);
+
 //  public void visitMeeting(Meeting meeting);
 //
 //  public void visitPratice(Practice practice);

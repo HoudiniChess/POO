@@ -8,12 +8,16 @@ import java.io.InputStreamReader;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import BalSat.generated.BalSatLexer;
 import BalSat.generated.BalSatParser;
 import command.AssignBeacon;
+import model.meta.BaseVisitor;
+import model.meta.MMEntity;
+import model.meta.Script;
 import visiting.SourceMaterializer;
 
 public class Application
@@ -31,6 +35,12 @@ public class Application
     Thread t2 = reader(simulation);
     t2.start();
     t1.start();
+  }
+
+  public static void baseVisitored(MMEntity entity)
+  {
+    BaseVisitor bv = new BaseVisitor();
+    entity.accept(bv);
   }
 
   protected static Thread launch(Simulation simulation)
@@ -54,6 +64,8 @@ public class Application
           ParseTree tree = parser.script();
           SourceMaterializer mat = new SourceMaterializer();
           mat.visit(tree);
+          Script script = (Script) mat.resultFor((ParserRuleContext) tree);
+          baseVisitored(script);
           AssignBeacon cmd = new AssignBeacon(simulation);
           cmd.execute();
           System.out.println(tree.toStringTree());

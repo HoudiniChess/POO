@@ -16,11 +16,11 @@ creation: 'new' VAR PARG arguments? PARD;
 value: NB | SYMBOL ; 
 
 arguments: arg (VIRG arg)*;
-arg: VAR '=' valueAssign;
+arg: VAR EQUAL valueAssign;
 
 SYMBOL: '#' VAR;
 NB  : [0-9]+ ; 
-VAR  : [a-zA-Z]+ ;
+VAR  : [a-zA-Z][a-zA-Z0-9]* ;
 WS  : [ \t\r\n]+ -> skip ;
 PARG : '(';
 PARD : ')';

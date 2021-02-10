@@ -1,6 +1,6 @@
 package model.meta;
 
-public class Call implements ICommandLanguage
+public class Call extends ICommandLanguage
 {
 
   String variable;
@@ -17,7 +17,7 @@ public class Call implements ICommandLanguage
   @Override
   public void accept(Visitor visitor)
   {
-    // TODO Auto-generated method stub
+    visitor.visitCall(this);
 
   }
 
