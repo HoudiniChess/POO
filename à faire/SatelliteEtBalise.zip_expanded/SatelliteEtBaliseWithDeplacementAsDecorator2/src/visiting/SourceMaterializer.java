@@ -17,20 +17,24 @@ import BalSat.generated.BalSatParser.CreationContext;
 import BalSat.generated.BalSatParser.ScriptContext;
 import BalSat.generated.BalSatParser.ValueAssignContext;
 import BalSat.generated.BalSatParser.ValueContext;
-import command.ICommand;
+import model.meta.Arguments;
 import model.meta.Assign;
+import model.meta.Call;
+import model.meta.ICommandLanguage;
 import model.meta.Script;
-import model.meta.value.Value;
+import model.meta.ValueAssign;
+import model.meta.value.NumberValue;
+import model.meta.value.SymbolValue;
 
 public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
 {
   ParseTreeProperty<Object> values = new ParseTreeProperty<Object>();
 
-  protected HashMap<String, String> map;
+  protected HashMap<Object, Object> map;
 
   public SourceMaterializer()
   {
-    this.map = new HashMap<String, String>();
+    this.map = new HashMap<>();
   }
 
   public Object resultFor(ParserRuleContext ctx)
@@ -44,15 +48,17 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     System.out.println("visitScript");
     ParserRuleContext r = super.visitScript(ctx);
     Iterator<CommandContext> itor = ctx.command().iterator();
-    ArrayList<ICommand> commands = new ArrayList<ICommand>();
+    ArrayList<ICommandLanguage> commands = new ArrayList<>();
     while (itor.hasNext())
     {
-      commands.add((ICommand) values.get(itor.next()));
+      ICommandLanguage cmd = (ICommandLanguage) map.get(itor.next());
+      commands.add(cmd);
     }
     Script script = new Script();
     script.addAllCommands(commands);
     values.put(ctx, script);
     return r;
+
   }
 
   @Override
@@ -68,40 +74,12 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   public ParserRuleContext visitAssign(AssignContext ctx)
   {
     System.out.println("visitAssign");
+    ParserRuleContext r = super.visitAssign(ctx);
     String variable = ctx.VAR().getText();
-    String valueAssign = ctx.getChild(2).getText();
-    switch (valueAssign)
-    {
-      case "value":
-        System.out.println("VALUE SWITCH");
-        ValueContext context = ctx.valueAssign().value();
-        System.out.println("Mon Contexte de value : " + context);
-        break;
-
-      case "call":
-        System.out.println();
-        break;
-
-      case "creation":
-        break;
-
-      default:
-        break;
-    }
+    ValueAssign valueAssign = (ValueAssign) map.get(ctx.getChild(2));
     Assign assign = new Assign(variable, valueAssign);
-//    CreationContext context = ctx.valueAssign().creation();
-//    List<ArgContext> variables = context.arguments().arg();
-//
-//    for (ArgContext var : variables)
-//    {
-//      String valeur = var.VAR().getText();
-//      String nb = var.valueAssign().value().NB().getText();
-//      map.put(valeur, nb);
-//    }
-
-    System.out.println("Assign = " + assign.getVariable());
-    return visitChildren(ctx);
-
+    values.put(ctx, assign);
+    return r;
   }
 
   @Override
@@ -111,22 +89,9 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     ParserRuleContext r = super.visitCall(ctx);
     String variable = ctx.VAR().get(0).getText();
     String action = ctx.VAR().get(1).getText();
-    // Map<String, String> arguments = (Map<String, String>) values.get(ctx.arguments());
-
-    switch (action)
-    {
-      case "start":
-        System.out.println("Créer commande START");
-        break;
-
-      case "stop":
-        System.out.println("Créer commande STOP");
-        break;
-
-      default:
-        System.out.println("Throw UNDIFINED COMMAND");
-        break;
-    }
+    Arguments arguments = (Arguments) map.get(ctx.arguments().arg());
+    Call call = new Call(variable, action, arguments);
+    values.put(ctx, call);
     return r;
   }
 
@@ -134,7 +99,9 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   public ParserRuleContext visitValueAssign(ValueAssignContext ctx)
   {
     System.out.println("visitValueAssign");
-    return visitChildren(ctx);
+    ParserRuleContext r = super.visitValueAssign(ctx);
+    values.put(ctx, ctx.getChild(0));
+    return r;
   }
 
   @Override
@@ -147,11 +114,21 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   @Override
   public ParserRuleContext visitValue(ValueContext ctx)
   {
-    // faire le switch pour récupérer soit un number soit un symbol
     System.out.println("visitValue");
     ParserRuleContext r = super.visitValue(ctx);
-    values.put(ctx, values.get(ctx.getChild(0)));
-    Value value = new Value(values.get(ctx.getChild(0)));
+    if (ctx.NB() != null)
+    {
+      NumberValue nv = new NumberValue(Integer.parseInt(ctx.NB().getText()));
+      map.put(ctx, nv);
+      values.put(ctx, nv);
+    }
+    else
+    {
+      SymbolValue sv = new SymbolValue(ctx.SYMBOL().getText());
+      map.put(ctx, sv);
+      values.put(ctx, sv);
+    }
+
     return r;
   }
 

@@ -3,24 +3,22 @@ package model.meta;
 import java.util.ArrayList;
 import java.util.List;
 
-import command.ICommand;
-
 public class Script
 {
 
-  private ArrayList<ICommand> commands;
+  private ArrayList<ICommandLanguage> commands;
 
   public Script()
   {
     this.commands = new ArrayList<>();
   }
 
-  public void addCommand(ICommand commande)
+  public void addCommand(ICommandLanguage commande)
   {
     this.commands.add(commande);
   }
 
-  public void addAllCommands(List<ICommand> commandes)
+  public void addAllCommands(List<ICommandLanguage> commandes)
   {
     this.commands.addAll(commandes);
   }
