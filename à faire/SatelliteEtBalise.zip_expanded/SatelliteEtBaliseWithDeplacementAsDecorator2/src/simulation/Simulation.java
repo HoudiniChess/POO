@@ -4,26 +4,25 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import model.Beacon;
-import model.Manager;
-import model.Memory;
+import model.ManagerBis;
 import model.Satellite;
-import movementStrategy.Movement;
+import movementStrategy.HorizontalMovement;
 import movementStrategy.SatelliteMovement;
 
 public class Simulation
 {
-  Manager manager;
   GSpace world;
   GRect sky;
   GRect sea;
+  Point pointBeacon = new Point(0, 160); // mettre ça en random
+  Point pointSatellite = new Point(10, 50);
+  Integer vitesse = 2; // random
 
   public Simulation()
   {
-    this.manager = new Manager();
     this.initWorld();
   }
 
@@ -31,7 +30,7 @@ public class Simulation
   {
     while (true)
     {
-      manager.tick();
+      ManagerBis.getInstance().tick();
       try
       {
         Thread.sleep(50);
@@ -43,38 +42,34 @@ public class Simulation
     }
   }
 
-  public void addBeacon(GBounded sea, Point startPos, Movement depl, Memory memory)
+  public void addBeacon(Beacon beacon)
   {
-    Beacon bal = new Beacon(memory);
-    bal.setPosition(startPos);
-    bal.setCollectMovement(depl);
-    bal.setStandartDeepness(startPos.y);
-    manager.addBalise(bal);
+    beacon.setPosition(pointBeacon);
+    beacon.setCollectMovement(new HorizontalMovement(4, 50, 750));
+    beacon.setStandartDeepness(pointBeacon.y);
     GrBeacon grbal = new GrBeacon();
-    grbal.setModel(bal);
+    grbal.setModel(beacon);
     sea.addElement(grbal);
   }
 
-  public void addBeacon(Point startPos, Movement depl, Memory memory)
-  {
-    this.addBeacon(sea, startPos, depl, memory);
-  }
+//  public void addBeacon(Point startPos, Movement depl, Memory memory)
+//  {
+//    this.addBeacon(sea, startPos, depl, memory);
+//  }
 
-  public void addSatellite(GBounded sky, Point startPos, int vitesse, Memory memory)
+  public void addSatellite(Satellite satellite)
   {
-    Satellite sat = new Satellite(memory);
-    sat.setPosition(startPos);
-    sat.setMovement(new SatelliteMovement(-10, 1000, vitesse));
-    manager.addSatellite(sat);
+    satellite.setPosition(pointSatellite);
+    satellite.setMovement(new SatelliteMovement(-10, 1000, vitesse));
     GrSatellite grSat = new GrSatellite();
-    grSat.setModel(sat);
+    grSat.setModel(satellite);
     sky.addElement(grSat);
   }
 
-  public void addSatellite(Point startPos, int vitesse, Memory memory)
-  {
-    this.addSatellite(sky, startPos, vitesse, memory);
-  }
+//  public void addSatellite(Point startPos, int vitesse, Memory memory)
+//  {
+//    this.addSatellite(sky, startPos, vitesse, memory);
+//  }
 
   public void launch()
   {

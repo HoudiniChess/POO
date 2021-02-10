@@ -18,7 +18,6 @@ public class Call extends ICommandLanguage
   public void accept(Visitor visitor)
   {
     visitor.visitCall(this);
-
   }
 
   public String getVariable()

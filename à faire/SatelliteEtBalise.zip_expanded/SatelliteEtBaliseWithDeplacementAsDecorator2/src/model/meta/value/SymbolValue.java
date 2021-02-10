@@ -1,6 +1,8 @@
 package model.meta.value;
 
-public class SymbolValue implements Value<String>
+import model.meta.Visitor;
+
+public class SymbolValue extends Value
 {
 
   protected String symbol;
@@ -11,9 +13,20 @@ public class SymbolValue implements Value<String>
   }
 
   @Override
-  public String getValue()
+  public void accept(Visitor visitor)
+  {
+    // TODO Auto-generated method stub
+
+  }
+
+  public String getSymbol()
   {
     return symbol;
+  }
+
+  public void setSymbol(String symbol)
+  {
+    this.symbol = symbol;
   }
 
 }

@@ -1,16 +1,11 @@
 package model.meta.value;
 
-public interface Value<T>
+import model.meta.ValueAssign;
+import model.meta.Visitor;
+
+public abstract class Value extends ValueAssign
 {
-  public static Value<Object> UNDEFINED_VALUE = new Value<Object>()
-  {
-    @Override
-    public Object getValue()
-    {
-      return null;
-    }
+  @Override
+  public abstract void accept(Visitor visitor);
 
-  };
-
-  T getValue();
 }

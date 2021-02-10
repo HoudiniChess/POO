@@ -1,9 +1,5 @@
 package command;
 
-import java.awt.Point;
-
-import model.Memory;
-import movementStrategy.HorizontalMovement;
 import simulation.Simulation;
 
 public class AssignBeacon implements ICommand
@@ -18,6 +14,7 @@ public class AssignBeacon implements ICommand
   @Override
   public void execute()
   {
-    this.simulation.addBeacon(new Point(400, 200), new HorizontalMovement(4, 50, 750), new Memory(300));
+//    this.simulation.addBeacon(new Point(400, 200), new HorizontalMovement(4, 50, 750), new Memory(300));
+    System.out.println("execute");
   }
 }

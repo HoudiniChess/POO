@@ -15,6 +15,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import BalSat.generated.BalSatLexer;
 import BalSat.generated.BalSatParser;
 import command.AssignBeacon;
+import model.ManagerBis;
 import model.meta.BaseVisitor;
 import model.meta.MMEntity;
 import model.meta.Script;
@@ -31,6 +32,7 @@ public class Application
   protected static void startApplication()
   {
     Simulation simulation = new Simulation();
+    ManagerBis.getInstance().setSimulation(simulation);
     Thread t1 = launch(simulation);
     Thread t2 = reader(simulation);
     t2.start();
@@ -43,7 +45,7 @@ public class Application
     entity.accept(bv);
   }
 
-  protected static Thread launch(Simulation simulation)
+  protected static Thread launchInput(Simulation simulation)
   {
     Thread t = new Thread()
     {
@@ -81,6 +83,31 @@ public class Application
 
     return t;
 
+  }
+
+  protected static Thread launch(Simulation simulation)
+  {
+    Thread t = new Thread()
+    {
+      @Override
+      public void run()
+      {
+        String input = "bal1 = new Balise(); " + "bal1.start(); ";
+        CharStream stream = CharStreams.fromString(input);
+        BalSatLexer lexer = new BalSatLexer(stream);
+        TokenStream tokens = new CommonTokenStream(lexer);
+        BalSatParser parser = new BalSatParser(tokens);
+        ParseTree tree = parser.script();
+        SourceMaterializer mat = new SourceMaterializer();
+        mat.visit(tree);
+        Script script = (Script) mat.resultFor((ParserRuleContext) tree);
+        baseVisitored(script);
+        AssignBeacon cmd = new AssignBeacon(simulation);
+        cmd.execute();
+        System.out.println(tree.toStringTree());
+      };
+    };
+    return t;
   }
 
   protected static Thread reader(Simulation simulation)

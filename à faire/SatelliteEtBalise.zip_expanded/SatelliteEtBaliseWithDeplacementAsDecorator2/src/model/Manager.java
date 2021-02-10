@@ -6,7 +6,7 @@ import events.SatelliteMoved;
 import state.BeaconStateSynchro;
 
 /**
- * Manage les objets de notre simulation. Il permet d'envoyer les messages à nos objets
+ * Manage les objets de notre simulation. Il permet d'envoyer les messages ï¿½ nos objets
  * 
  * @author yannl
  *
@@ -32,7 +32,6 @@ public class Manager
   {
     for (Beacon b : this.bals)
     {
-
       b.tick();
     }
     for (Satellite s : this.sats)

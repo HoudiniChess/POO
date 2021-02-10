@@ -21,6 +21,7 @@ import model.meta.Argument;
 import model.meta.Arguments;
 import model.meta.Assign;
 import model.meta.Call;
+import model.meta.Creation;
 import model.meta.ICommandLanguage;
 import model.meta.Script;
 import model.meta.ValueAssign;
@@ -91,7 +92,11 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     ParserRuleContext r = super.visitCall(ctx);
     String variable = ctx.VAR().get(0).getText();
     String action = ctx.VAR().get(1).getText();
-    Arguments arguments = (Arguments) map.get(ctx.arguments().arg());
+    Arguments arguments = new Arguments();
+    if (ctx.arguments().arg() != null)
+    {
+      arguments = (Arguments) map.get(ctx.arguments().arg());
+    }
     Call call = new Call(variable, action, arguments);
     map.put(ctx.getParent(), call); // coucou la liaison à une jumelle
     values.put(ctx, call);
@@ -111,7 +116,13 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   public ParserRuleContext visitCreation(CreationContext ctx)
   {
     System.out.println("visitCreation");
-    return super.visitCreation(ctx);
+    ParserRuleContext r = super.visitCreation(ctx);
+    String variable = ctx.VAR().getText();
+    Arguments arguments = (Arguments) map.get(ctx.arguments());
+    Creation creation = new Creation(variable, arguments);
+    map.put(ctx.getParent(), creation);
+    values.put(ctx, creation);
+    return r;
   }
 
   @Override

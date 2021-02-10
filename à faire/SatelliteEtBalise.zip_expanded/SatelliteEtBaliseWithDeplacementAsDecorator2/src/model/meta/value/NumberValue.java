@@ -1,20 +1,32 @@
 package model.meta.value;
 
-public class NumberValue implements Value<Number>
+import model.meta.Visitor;
+
+public class NumberValue extends Value
 {
 
-  protected Number value;
+  protected Integer value;
 
-  public NumberValue(Number nb)
+  public NumberValue(Integer nb)
   {
     this.value = nb;
   }
 
   @Override
-  public Number getValue()
+  public void accept(Visitor visitor)
+  {
+    visitor.visitNumber(this);
+
+  }
+
+  public Integer getValue()
   {
     return value;
   }
 
-  ;
+  public void setValue(Integer value)
+  {
+    this.value = value;
+  }
+
 }
