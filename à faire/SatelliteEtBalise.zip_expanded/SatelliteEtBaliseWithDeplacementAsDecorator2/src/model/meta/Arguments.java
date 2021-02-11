@@ -3,7 +3,7 @@ package model.meta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arguments
+public class Arguments extends MMEntity
 {
   List<Argument> arguments;
 
@@ -25,6 +25,13 @@ public class Arguments
   public void setArguments(List<Argument> arguments)
   {
     this.arguments = arguments;
+  }
+
+  @Override
+  public void accept(Visitor visitor)
+  {
+    visitor.visitArguments(this);
+
   }
 
 }

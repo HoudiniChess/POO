@@ -1,6 +1,6 @@
 package model.meta;
 
-public class Argument
+public class Argument extends MMEntity
 {
   protected String variable;
   protected ValueAssign valueAssign;
@@ -29,6 +29,13 @@ public class Argument
   public void setValueAssign(ValueAssign valueAssign)
   {
     this.valueAssign = valueAssign;
+  }
+
+  @Override
+  public void accept(Visitor visitor)
+  {
+    visitor.visitArgument(this);
+
   }
 
 }

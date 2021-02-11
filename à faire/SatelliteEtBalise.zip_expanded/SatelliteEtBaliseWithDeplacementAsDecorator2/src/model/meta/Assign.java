@@ -1,6 +1,6 @@
 package model.meta;
 
-public class Assign extends ICommandLanguage
+public class Assign implements ICommandLanguage
 {
 
   String variable;

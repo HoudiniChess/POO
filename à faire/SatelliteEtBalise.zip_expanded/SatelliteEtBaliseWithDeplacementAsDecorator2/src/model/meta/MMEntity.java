@@ -1,6 +1,6 @@
 package model.meta;
 
-public interface MMEntity {
-	void accept (Visitor visitor) ;
-
+public abstract class MMEntity
+{
+  public abstract void accept(Visitor visitor);
 }

@@ -14,9 +14,31 @@ public class Creation extends ValueAssign
   }
 
   @Override
+  public void accept(Visitor visitor, Assign assign)
+  {
+    this.name = assign.getVariable();
+    visitor.visitCreation(this);
+  }
+
+  @Override
+  public void accept(Visitor visitor, Argument argument)
+  {
+    this.name = argument.getVariable();
+    visitor.visitCreation(this);
+
+  }
+
+  @Override
   public void accept(Visitor visitor)
   {
-    visitor.visitCreation(this);
+    // Not use
+
+  }
+
+  @Override
+  public Object getValeur()
+  {
+    return this.name;
   }
 
   public String getVariable()
@@ -47,12 +69,6 @@ public class Creation extends ValueAssign
   public void setName(String name)
   {
     this.name = name;
-  }
-
-  public void acceptCreation(Visitor visitor, Assign assign)
-  {
-    this.name = assign.getVariable();
-    this.accept(visitor);
   }
 
 }

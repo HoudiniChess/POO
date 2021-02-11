@@ -8,6 +8,7 @@ import model.Memory;
 import model.Satellite;
 import model.meta.value.NumberValue;
 import model.meta.value.SymbolValue;
+import model.meta.value.Value;
 
 public class BaseVisitor implements Visitor
 {
@@ -46,9 +47,13 @@ public class BaseVisitor implements Visitor
     // stockage des variable ?
     if (assign.getValue() instanceof Creation)
     {
-      ((Creation) assign.getValue()).acceptCreation(this, assign);
+      ((Creation) assign.getValue()).accept(this, assign);
     }
-    else
+    else if (assign.getValue() instanceof Value)
+    {
+      ((Value) assign.getValue()).accept(this, assign);
+    }
+    else if (assign.getValue() instanceof Call)
     {
       assign.getValue().accept(this);
     }
@@ -77,28 +82,44 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitNumber(NumberValue numberValue)
   {
-    // TODO Auto-generated method stub
-
+    ManagerVariable.getInstance().getNumbers().put(numberValue.getVariable(), numberValue.getValue());
+    numberValue.accept(this);
   }
 
   @Override
   public void visitSymbol(SymbolValue symbolValue)
   {
-    // TODO Auto-generated method stub
-
+    ManagerVariable.getInstance().getSymbols().put(symbolValue.getVariable(), symbolValue.getSymbol());
+    symbolValue.accept(this);
   }
 
   @Override
   public void visitArguments(Arguments arguments)
   {
-    // TODO Auto-generated method stub
+    for (Argument currentArg : arguments.getArguments())
+    {
+      currentArg.accept(this);
+    }
 
   }
 
   @Override
   public void visitArgument(Argument argument)
   {
-    // TODO Auto-generated method stub
-
+    System.out.println("Assign");
+    // call utilité ?
+    // stockage des variable ?
+    if (argument.getValueAssign() instanceof Creation)
+    {
+      ((Creation) argument.getValueAssign()).accept(this, argument);
+    }
+    else if (argument.getValueAssign() instanceof Value)
+    {
+      ((Value) argument.getValueAssign()).accept(this, argument);
+    }
+    else if (argument.getValueAssign() instanceof Call)
+    {
+      argument.getValueAssign().accept(this);
+    }
   }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Script implements MMEntity
+public class Script extends MMEntity
 {
 
   private ArrayList<ICommandLanguage> commands;
@@ -29,7 +29,6 @@ public class Script implements MMEntity
     return this.commands.iterator();
   }
 
-  @Override
   public void accept(Visitor visitor)
   {
     visitor.visitScript(this);

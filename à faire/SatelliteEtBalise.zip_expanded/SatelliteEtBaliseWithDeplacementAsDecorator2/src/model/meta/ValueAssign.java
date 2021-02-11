@@ -1,7 +1,13 @@
 package model.meta;
 
-public abstract class ValueAssign implements MMEntity
+public abstract class ValueAssign
 {
-  @Override
+  public abstract void accept(Visitor visitor, Assign assign);
+
+  public abstract void accept(Visitor visitor, Argument argument);
+
   public abstract void accept(Visitor visitor);
+
+  public abstract Object getValeur();
+
 }

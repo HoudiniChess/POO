@@ -1,6 +1,6 @@
 package model.meta;
 
-public class Call extends ICommandLanguage
+public class Call extends ValueAssign implements ICommandLanguage
 {
 
   String variable;
@@ -18,6 +18,26 @@ public class Call extends ICommandLanguage
   public void accept(Visitor visitor)
   {
     visitor.visitCall(this);
+  }
+
+  @Override
+  public void accept(Visitor visitor, Assign assign)
+  {
+    // Not use
+
+  }
+
+  @Override
+  public void accept(Visitor visitor, Argument argument)
+  {
+    // Not use
+
+  }
+
+  @Override
+  public Object getValeur()
+  {
+    return this.variable;
   }
 
   public String getVariable()
