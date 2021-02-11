@@ -93,10 +93,7 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     String variable = ctx.VAR().get(0).getText();
     String action = ctx.VAR().get(1).getText();
     Arguments arguments = new Arguments();
-    if (ctx.arguments().arg() != null)
-    {
-      arguments = (Arguments) map.get(ctx.arguments().arg());
-    }
+    arguments = (Arguments) map.get(ctx.arguments());
     Call call = new Call(variable, action, arguments);
     map.put(ctx.getParent(), call); // coucou la liaison à une jumelle
     values.put(ctx, call);

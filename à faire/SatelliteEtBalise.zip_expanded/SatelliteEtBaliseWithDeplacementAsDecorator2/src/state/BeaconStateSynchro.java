@@ -4,6 +4,7 @@ import events.SatelliteMoveListener;
 import events.SatelliteMoved;
 import events.SynchroEvent;
 import model.Beacon;
+import model.ManagerBis;
 import model.Satellite;
 
 /**
@@ -22,7 +23,7 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
   public void install(Beacon beacon)
   {
     this.beacon = beacon;
-    beacon.getManager().beaconReadyForSynchro(this);
+    ManagerBis.getInstance().beaconReadyForSynchro(this);
   }
 
   @Override
@@ -37,7 +38,7 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
     beacon.getMemory().removeData(SYNCHROTIME);
     satSynchro.getMemory().addData(SYNCHROTIME);
 
-    // Todo: Amélioration avec les satellites qui vont déposer leur données à un bateau
+    // Todo: Amï¿½lioration avec les satellites qui vont dï¿½poser leur donnï¿½es ï¿½ un bateau
     if (satSynchro.getMemory().memoryFull())
     {
       satSynchro.getMemory().resetData();
@@ -50,7 +51,7 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
       this.satSynchro = null;
       beacon.send(new SynchroEvent(this));
       sat.send(new SynchroEvent(this));
-      beacon.getManager().beaconSynchroDone(this);
+      ManagerBis.getInstance().beaconSynchroDone(this);
       this.nextState(beacon);
     }
   }

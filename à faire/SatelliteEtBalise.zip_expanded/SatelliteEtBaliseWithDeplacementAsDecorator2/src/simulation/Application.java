@@ -92,7 +92,7 @@ public class Application
       @Override
       public void run()
       {
-        String input = "bal1 = new Balise(); " + "bal1.start(); ";
+        String input = "bal1 = new Balise(); " + "sat1 = new Satellite(); " + "bal1.start();" + "sat1.start()";
         CharStream stream = CharStreams.fromString(input);
         BalSatLexer lexer = new BalSatLexer(stream);
         TokenStream tokens = new CommonTokenStream(lexer);
