@@ -3,6 +3,7 @@ package visiting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
@@ -27,16 +28,19 @@ import model.meta.Script;
 import model.meta.ValueAssign;
 import model.meta.value.NumberValue;
 import model.meta.value.SymbolValue;
+import simulation.Simulation;
 
 public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
 {
   ParseTreeProperty<Object> values = new ParseTreeProperty<Object>();
 
   protected HashMap<Object, Object> map;
+  protected Simulation sim;
 
-  public SourceMaterializer()
+  public SourceMaterializer(Simulation sim)
   {
     this.map = new HashMap<>();
+    this.sim = sim;
   }
 
   public Object resultFor(ParserRuleContext ctx)
@@ -82,6 +86,9 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     Assign assign = new Assign(variable, valueAssign);
     map.put(ctx.getParent(), assign); // coucou je suis la liaison
     values.put(ctx, assign);
+    ArgumentsContext context = ctx.valueAssign().creation().arguments();
+    List<ArgContext> arguments = context.arg();
+
     return r;
   }
 
@@ -116,9 +123,11 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     ParserRuleContext r = super.visitCreation(ctx);
     String variable = ctx.VAR().getText();
     Arguments arguments = (Arguments) map.get(ctx.arguments());
+    System.out.println(ctx.arguments());
     Creation creation = new Creation(variable, arguments);
     map.put(ctx.getParent(), creation);
     values.put(ctx, creation);
+
     return r;
   }
 
@@ -150,6 +159,7 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     ParserRuleContext r = super.visitArguments(ctx);
     Iterator<ArgContext> itor = ctx.arg().iterator();
     ArrayList<Argument> listArguments = new ArrayList<>();
+
     while (itor.hasNext())
     {
       Argument arg = (Argument) map.get(itor.next());

@@ -276,10 +276,10 @@ public class BalSatParser extends Parser {
 		}
 		public TerminalNode POINT() { return getToken(BalSatParser.POINT, 0); }
 		public TerminalNode PARG() { return getToken(BalSatParser.PARG, 0); }
-		public TerminalNode PARD() { return getToken(BalSatParser.PARD, 0); }
 		public ArgumentsContext arguments() {
 			return getRuleContext(ArgumentsContext.class,0);
 		}
+		public TerminalNode PARD() { return getToken(BalSatParser.PARD, 0); }
 		public CallContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -302,7 +302,6 @@ public class BalSatParser extends Parser {
 	public final CallContext call() throws RecognitionException {
 		CallContext _localctx = new CallContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_call);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -314,17 +313,9 @@ public class BalSatParser extends Parser {
 			match(VAR);
 			setState(37);
 			match(PARG);
+			setState(38);
+			arguments();
 			setState(39);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==VAR) {
-				{
-				setState(38);
-				arguments();
-				}
-			}
-
-			setState(41);
 			match(PARD);
 			}
 		}
@@ -372,28 +363,28 @@ public class BalSatParser extends Parser {
 		ValueAssignContext _localctx = new ValueAssignContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_valueAssign);
 		try {
-			setState(46);
+			setState(44);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SYMBOL:
 			case NB:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(43);
+				setState(41);
 				value();
 				}
 				break;
 			case VAR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(44);
+				setState(42);
 				call();
 				}
 				break;
 			case T__0:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(45);
+				setState(43);
 				creation();
 				}
 				break;
@@ -445,23 +436,23 @@ public class BalSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48);
+			setState(46);
 			match(T__0);
-			setState(49);
+			setState(47);
 			match(VAR);
-			setState(50);
+			setState(48);
 			match(PARG);
-			setState(52);
+			setState(50);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==VAR) {
 				{
-				setState(51);
+				setState(49);
 				arguments();
 				}
 			}
 
-			setState(54);
+			setState(52);
 			match(PARD);
 			}
 		}
@@ -505,7 +496,7 @@ public class BalSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(56);
+			setState(54);
 			_la = _input.LA(1);
 			if ( !(_la==SYMBOL || _la==NB) ) {
 			_errHandler.recoverInline(this);
@@ -565,21 +556,21 @@ public class BalSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(58);
+			setState(56);
 			arg();
-			setState(63);
+			setState(61);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==VIRG) {
 				{
 				{
-				setState(59);
+				setState(57);
 				match(VIRG);
-				setState(60);
+				setState(58);
 				arg();
 				}
 				}
-				setState(65);
+				setState(63);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -627,11 +618,11 @@ public class BalSatParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(66);
+			setState(64);
 			match(VAR);
-			setState(67);
+			setState(65);
 			match(EQUAL);
-			setState(68);
+			setState(66);
 			valueAssign();
 			}
 		}
@@ -647,24 +638,23 @@ public class BalSatParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\rI\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\rG\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\7\2\26"+
 		"\n\2\f\2\16\2\31\13\2\3\3\3\3\3\3\3\3\5\3\37\n\3\3\4\3\4\3\4\3\4\3\5\3"+
-		"\5\3\5\3\5\3\5\5\5*\n\5\3\5\3\5\3\6\3\6\3\6\5\6\61\n\6\3\7\3\7\3\7\3\7"+
-		"\5\7\67\n\7\3\7\3\7\3\b\3\b\3\t\3\t\3\t\7\t@\n\t\f\t\16\tC\13\t\3\n\3"+
-		"\n\3\n\3\n\3\n\2\2\13\2\4\6\b\n\f\16\20\22\2\3\3\2\4\5\2F\2\27\3\2\2\2"+
-		"\4\36\3\2\2\2\6 \3\2\2\2\b$\3\2\2\2\n\60\3\2\2\2\f\62\3\2\2\2\16:\3\2"+
-		"\2\2\20<\3\2\2\2\22D\3\2\2\2\24\26\5\4\3\2\25\24\3\2\2\2\26\31\3\2\2\2"+
-		"\27\25\3\2\2\2\27\30\3\2\2\2\30\3\3\2\2\2\31\27\3\2\2\2\32\37\5\b\5\2"+
-		"\33\34\5\6\4\2\34\35\7\r\2\2\35\37\3\2\2\2\36\32\3\2\2\2\36\33\3\2\2\2"+
-		"\37\5\3\2\2\2 !\7\6\2\2!\"\7\n\2\2\"#\5\n\6\2#\7\3\2\2\2$%\7\6\2\2%&\7"+
-		"\f\2\2&\'\7\6\2\2\')\7\b\2\2(*\5\20\t\2)(\3\2\2\2)*\3\2\2\2*+\3\2\2\2"+
-		"+,\7\t\2\2,\t\3\2\2\2-\61\5\16\b\2.\61\5\b\5\2/\61\5\f\7\2\60-\3\2\2\2"+
-		"\60.\3\2\2\2\60/\3\2\2\2\61\13\3\2\2\2\62\63\7\3\2\2\63\64\7\6\2\2\64"+
-		"\66\7\b\2\2\65\67\5\20\t\2\66\65\3\2\2\2\66\67\3\2\2\2\678\3\2\2\289\7"+
-		"\t\2\29\r\3\2\2\2:;\t\2\2\2;\17\3\2\2\2<A\5\22\n\2=>\7\13\2\2>@\5\22\n"+
-		"\2?=\3\2\2\2@C\3\2\2\2A?\3\2\2\2AB\3\2\2\2B\21\3\2\2\2CA\3\2\2\2DE\7\6"+
-		"\2\2EF\7\n\2\2FG\5\n\6\2G\23\3\2\2\2\b\27\36)\60\66A";
+		"\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6/\n\6\3\7\3\7\3\7\3\7\5\7\65\n\7"+
+		"\3\7\3\7\3\b\3\b\3\t\3\t\3\t\7\t>\n\t\f\t\16\tA\13\t\3\n\3\n\3\n\3\n\3"+
+		"\n\2\2\13\2\4\6\b\n\f\16\20\22\2\3\3\2\4\5\2C\2\27\3\2\2\2\4\36\3\2\2"+
+		"\2\6 \3\2\2\2\b$\3\2\2\2\n.\3\2\2\2\f\60\3\2\2\2\168\3\2\2\2\20:\3\2\2"+
+		"\2\22B\3\2\2\2\24\26\5\4\3\2\25\24\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2"+
+		"\27\30\3\2\2\2\30\3\3\2\2\2\31\27\3\2\2\2\32\37\5\b\5\2\33\34\5\6\4\2"+
+		"\34\35\7\r\2\2\35\37\3\2\2\2\36\32\3\2\2\2\36\33\3\2\2\2\37\5\3\2\2\2"+
+		" !\7\6\2\2!\"\7\n\2\2\"#\5\n\6\2#\7\3\2\2\2$%\7\6\2\2%&\7\f\2\2&\'\7\6"+
+		"\2\2\'(\7\b\2\2()\5\20\t\2)*\7\t\2\2*\t\3\2\2\2+/\5\16\b\2,/\5\b\5\2-"+
+		"/\5\f\7\2.+\3\2\2\2.,\3\2\2\2.-\3\2\2\2/\13\3\2\2\2\60\61\7\3\2\2\61\62"+
+		"\7\6\2\2\62\64\7\b\2\2\63\65\5\20\t\2\64\63\3\2\2\2\64\65\3\2\2\2\65\66"+
+		"\3\2\2\2\66\67\7\t\2\2\67\r\3\2\2\289\t\2\2\29\17\3\2\2\2:?\5\22\n\2;"+
+		"<\7\13\2\2<>\5\22\n\2=;\3\2\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\21\3\2"+
+		"\2\2A?\3\2\2\2BC\7\6\2\2CD\7\n\2\2DE\5\n\6\2E\23\3\2\2\2\7\27\36.\64?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

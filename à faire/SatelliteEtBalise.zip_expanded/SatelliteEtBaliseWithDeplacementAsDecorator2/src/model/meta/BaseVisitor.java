@@ -2,10 +2,8 @@ package model.meta;
 
 import java.util.Iterator;
 
-import model.Beacon;
+import command.AssignCommand;
 import model.ManagerBis;
-import model.Memory;
-import model.Satellite;
 import model.meta.value.NumberValue;
 import model.meta.value.SymbolValue;
 import model.meta.value.Value;
@@ -63,25 +61,18 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitCreation(Creation creation)
   {
-    switch (creation.getVariable())
-    {
-      case "Satellite":
-        // list arg dans manager ?
-        ManagerBis.getInstance().addSatellite(creation.getName(), new Satellite(new Memory(100)));
-        break;
-      case "Balise":
-        ManagerBis.getInstance().addBeacon(creation.getName(), new Beacon(new Memory(100)));
-        break;
-      default:
-        System.out.println("Creation: " + creation.getName() + " non connue");
-        break;
-    }
+
+    creation.arguments.accept(this);
+    AssignCommand cmd = new AssignCommand(creation.arguments.getArguments());
+    cmd.execute(ManagerBis.getInstance().getSimulation());
 
   }
 
   @Override
   public void visitNumber(NumberValue numberValue)
   {
+    System.out.println(numberValue.getValue());
+    System.out.println(numberValue.getVariable());
     ManagerVariable.getInstance().getNumbers().put(numberValue.getVariable(), numberValue.getValue());
     numberValue.accept(this);
   }

@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import BalSat.generated.BalSatLexer;
 import BalSat.generated.BalSatParser;
 import model.meta.Script;
+import simulation.Simulation;
 
 class SourceMaterializerTest
 {
@@ -30,9 +31,10 @@ class SourceMaterializerTest
   void testAssignBalise()
   {
     String input = "bal = new Beacon(Memory=100);";
+    Simulation simul = new Simulation();
     BalSatParser parser = this.parserFor(input);
     ParseTree tree = parser.script();
-    SourceMaterializer mat = new SourceMaterializer();
+    SourceMaterializer mat = new SourceMaterializer(simul);
     mat.visit(tree);
     Script script = (Script) mat.resultFor((ParserRuleContext) tree);
     assertTrue(input.equals(script));

@@ -14,7 +14,6 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import BalSat.generated.BalSatLexer;
 import BalSat.generated.BalSatParser;
-import command.AssignBeacon;
 import model.ManagerBis;
 import model.meta.BaseVisitor;
 import model.meta.MMEntity;
@@ -64,12 +63,10 @@ public class Application
           TokenStream tokens = new CommonTokenStream(lexer);
           BalSatParser parser = new BalSatParser(tokens);
           ParseTree tree = parser.script();
-          SourceMaterializer mat = new SourceMaterializer();
+          SourceMaterializer mat = new SourceMaterializer(simulation);
           mat.visit(tree);
           Script script = (Script) mat.resultFor((ParserRuleContext) tree);
           baseVisitored(script);
-          AssignBeacon cmd = new AssignBeacon(simulation);
-          cmd.execute();
           System.out.println(tree.toStringTree());
 
         }
@@ -92,18 +89,16 @@ public class Application
       @Override
       public void run()
       {
-        String input = "bal1 = new Balise(); " + "sat1 = new Satellite(); " + "bal1.start();" + "sat1.start()";
+        String input = "bal1 = new Balise (PointX = 50, PointY = 700, Deplacement = #horizontal, Memory = 100, Speed = 2);";
         CharStream stream = CharStreams.fromString(input);
         BalSatLexer lexer = new BalSatLexer(stream);
         TokenStream tokens = new CommonTokenStream(lexer);
         BalSatParser parser = new BalSatParser(tokens);
         ParseTree tree = parser.script();
-        SourceMaterializer mat = new SourceMaterializer();
+        SourceMaterializer mat = new SourceMaterializer(simulation);
         mat.visit(tree);
         Script script = (Script) mat.resultFor((ParserRuleContext) tree);
         baseVisitored(script);
-        AssignBeacon cmd = new AssignBeacon(simulation);
-        cmd.execute();
         System.out.println(tree.toStringTree());
       };
     };

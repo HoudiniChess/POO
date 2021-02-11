@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
+import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import model.Beacon;
 import model.ManagerBis;
+import model.Memory;
 import model.Satellite;
 import movementStrategy.HorizontalMovement;
+import movementStrategy.Movement;
 import movementStrategy.SatelliteMovement;
 
 public class Simulation
@@ -52,10 +55,21 @@ public class Simulation
     sea.addElement(grbal);
   }
 
-//  public void addBeacon(Point startPos, Movement depl, Memory memory)
-//  {
-//    this.addBeacon(sea, startPos, depl, memory);
-//  }
+  public void addBeacon(GBounded sea, Point startPos, Movement depl, Memory memory)
+  {
+    Beacon bal = new Beacon(memory);
+    bal.setPosition(startPos);
+    bal.setCollectMovement(depl);
+    bal.setStandartDeepness(startPos.y);
+    GrBeacon grbal = new GrBeacon();
+    grbal.setModel(bal);
+    sea.addElement(grbal);
+  }
+
+  public void addBeacon(Point startPos, Movement depl, Memory memory)
+  {
+    this.addBeacon(sea, startPos, depl, memory);
+  }
 
   public void addSatellite(Satellite satellite)
   {
@@ -66,10 +80,20 @@ public class Simulation
     sky.addElement(grSat);
   }
 
-//  public void addSatellite(Point startPos, int vitesse, Memory memory)
-//  {
-//    this.addSatellite(sky, startPos, vitesse, memory);
-//  }
+  public void addSatellite(GBounded sky, Point startPos, int vitesse, Memory memory)
+  {
+    Satellite sat = new Satellite(memory);
+    sat.setPosition(startPos);
+    sat.setMovement(new SatelliteMovement(-10, 1000, vitesse));
+    GrSatellite grSat = new GrSatellite();
+    grSat.setModel(sat);
+    sky.addElement(grSat);
+  }
+
+  public void addSatellite(Point startPos, int vitesse, Memory memory)
+  {
+    this.addSatellite(sky, startPos, vitesse, memory);
+  }
 
   public void launch()
   {
