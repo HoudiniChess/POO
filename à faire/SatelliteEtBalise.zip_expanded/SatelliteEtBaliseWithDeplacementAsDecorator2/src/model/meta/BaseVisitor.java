@@ -4,8 +4,6 @@ import java.util.Iterator;
 
 import command.AssignCommand;
 import model.ManagerBis;
-import model.meta.value.NumberValue;
-import model.meta.value.SymbolValue;
 import model.meta.value.Value;
 
 public class BaseVisitor implements Visitor
@@ -23,7 +21,6 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitCall(Call call)
   {
-    System.out.println("Call");
     switch (call.getAction())
     {
       case "start":
@@ -40,19 +37,21 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitAssign(Assign assign)
   {
-    System.out.println("Assign");
     // call utilité ?
     // stockage des variable ?
     if (assign.getValue() instanceof Creation)
     {
+      System.out.println("Assign-Creation");
       ((Creation) assign.getValue()).accept(this, assign);
     }
     else if (assign.getValue() instanceof Value)
     {
+      System.out.println("Assign-Value");
       ((Value) assign.getValue()).accept(this, assign);
     }
     else if (assign.getValue() instanceof Call)
     {
+      System.out.println("Assign-Call");
       assign.getValue().accept(this);
     }
 
@@ -61,27 +60,16 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitCreation(Creation creation)
   {
-
     creation.arguments.accept(this);
     AssignCommand cmd = new AssignCommand(creation.arguments.getArguments());
     cmd.execute(ManagerBis.getInstance().getSimulation());
-
   }
 
   @Override
-  public void visitNumber(NumberValue numberValue)
+  public void visitValue(Value value)
   {
-    System.out.println(numberValue.getValue());
-    System.out.println(numberValue.getVariable());
-    ManagerVariable.getInstance().getNumbers().put(numberValue.getVariable(), numberValue.getValue());
-    numberValue.accept(this);
-  }
-
-  @Override
-  public void visitSymbol(SymbolValue symbolValue)
-  {
-    ManagerVariable.getInstance().getSymbols().put(symbolValue.getVariable(), symbolValue.getSymbol());
-    symbolValue.accept(this);
+    System.out.println("value");
+    ManagerVariable.getInstance().getValues().put(value.getVariable(), value.getValeur());
   }
 
   @Override
@@ -97,19 +85,21 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitArgument(Argument argument)
   {
-    System.out.println("Assign");
     // call utilité ?
     // stockage des variable ?
     if (argument.getValueAssign() instanceof Creation)
     {
+      System.out.println("Assign-Creation");
       ((Creation) argument.getValueAssign()).accept(this, argument);
     }
     else if (argument.getValueAssign() instanceof Value)
     {
+      System.out.println("Assign-Value");
       ((Value) argument.getValueAssign()).accept(this, argument);
     }
     else if (argument.getValueAssign() instanceof Call)
     {
+      System.out.println("Assign-Call");
       argument.getValueAssign().accept(this);
     }
   }

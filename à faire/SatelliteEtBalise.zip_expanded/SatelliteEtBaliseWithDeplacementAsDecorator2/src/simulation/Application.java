@@ -32,8 +32,8 @@ public class Application
   {
     Simulation simulation = new Simulation();
     ManagerBis.getInstance().setSimulation(simulation);
-    Thread t1 = launch(simulation);
-    Thread t2 = reader(simulation);
+    Thread t1 = inputScript(simulation);
+    Thread t2 = launch(simulation);
     t2.start();
     t1.start();
   }
@@ -82,14 +82,14 @@ public class Application
 
   }
 
-  protected static Thread launch(Simulation simulation)
+  protected static Thread inputScript(Simulation simulation)
   {
     Thread t = new Thread()
     {
       @Override
       public void run()
       {
-        String input = "bal1 = new Balise (PointX = 50, PointY = 700, Deplacement = #horizontal, Memory = 100, Speed = 2);";
+        String input = "bal1 = new Balise (PointX = 400, PointY = 200, Deplacement = #horizontal, Memory = 100, Speed = 2);";
         CharStream stream = CharStreams.fromString(input);
         BalSatLexer lexer = new BalSatLexer(stream);
         TokenStream tokens = new CommonTokenStream(lexer);
@@ -99,13 +99,12 @@ public class Application
         mat.visit(tree);
         Script script = (Script) mat.resultFor((ParserRuleContext) tree);
         baseVisitored(script);
-        System.out.println(tree.toStringTree());
       };
     };
     return t;
   }
 
-  protected static Thread reader(Simulation simulation)
+  protected static Thread launch(Simulation simulation)
   {
     Thread t = new Thread()
     {

@@ -28,7 +28,7 @@ public class AssignCommand implements ICommand
   @Override
   public void execute(Simulation simulation)
   {
-    System.out.println("mon mouvement" + mouvement);
+
     switch (mouvement)
     {
 
@@ -68,11 +68,11 @@ public class AssignCommand implements ICommand
 
   public void setUp(List<Argument> args)
   {
-    this.PointX = String.valueOf(ManagerVariable.getInstance().getNumbers().get(args.get(0).getVariable()));
-    this.PointY = String.valueOf(ManagerVariable.getInstance().getNumbers().get(args.get(1).getVariable()));
-    this.mouvement = String.valueOf(ManagerVariable.getInstance().getSymbols().get(args.get(2).getVariable()));
-    this.memory = String.valueOf(ManagerVariable.getInstance().getNumbers().get(args.get(3).getVariable()));
-    this.speed = String.valueOf(ManagerVariable.getInstance().getNumbers().get(args.get(4).getVariable()));
+    this.PointX = ManagerVariable.getInstance().getValues().get(args.get(0).getVariable());
+    this.PointY = ManagerVariable.getInstance().getValues().get(args.get(1).getVariable());
+    this.mouvement = ManagerVariable.getInstance().getValues().get(args.get(2).getVariable());
+    this.memory = ManagerVariable.getInstance().getValues().get(args.get(3).getVariable());
+    this.speed = ManagerVariable.getInstance().getValues().get(args.get(4).getVariable());
   }
 
 }

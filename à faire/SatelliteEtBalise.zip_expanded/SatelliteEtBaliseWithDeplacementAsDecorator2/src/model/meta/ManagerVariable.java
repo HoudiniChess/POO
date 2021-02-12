@@ -8,13 +8,11 @@ public class ManagerVariable
 
   public static ManagerVariable instance;
 
-  protected Map<String, String> symbols;
-  protected Map<String, Integer> numbers;
+  protected Map<String, String> values;
 
   private ManagerVariable()
   {
-    this.symbols = new HashMap<>();
-    this.numbers = new HashMap<>();
+    this.values = new HashMap<>();
   }
 
   public static ManagerVariable getInstance()
@@ -26,29 +24,14 @@ public class ManagerVariable
     return instance;
   }
 
-  public Map<String, String> getSymbols()
+  public Map<String, String> getValues()
   {
-    return symbols;
+    return values;
   }
 
-  public void setSymbols(Map<String, String> symbols)
+  public void setValues(Map<String, String> values)
   {
-    this.symbols = symbols;
-  }
-
-  public Map<String, Integer> getNumbers()
-  {
-    return numbers;
-  }
-
-  public void setNumbers(Map<String, Integer> numbers)
-  {
-    this.numbers = numbers;
-  }
-
-  public static void setInstance(ManagerVariable instance)
-  {
-    ManagerVariable.instance = instance;
+    this.values = values;
   }
 
 }

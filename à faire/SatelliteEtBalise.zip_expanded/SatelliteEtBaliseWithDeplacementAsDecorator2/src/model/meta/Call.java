@@ -34,12 +34,6 @@ public class Call extends ValueAssign implements ICommandLanguage
 
   }
 
-  @Override
-  public Object getValeur()
-  {
-    return this.variable;
-  }
-
   public String getVariable()
   {
     return variable;

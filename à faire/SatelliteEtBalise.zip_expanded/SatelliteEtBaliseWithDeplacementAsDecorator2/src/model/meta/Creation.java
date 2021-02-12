@@ -35,12 +35,6 @@ public class Creation extends ValueAssign
 
   }
 
-  @Override
-  public Object getValeur()
-  {
-    return this.name;
-  }
-
   public String getVariable()
   {
     return variable;

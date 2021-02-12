@@ -92,7 +92,9 @@ public class Simulation
 
   public void addSatellite(Point startPos, int vitesse, Memory memory)
   {
+
     this.addSatellite(sky, startPos, vitesse, memory);
+
   }
 
   public void launch()

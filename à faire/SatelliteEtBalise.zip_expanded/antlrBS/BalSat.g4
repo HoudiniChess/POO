@@ -8,7 +8,7 @@ script: command *;
 command: call|assign POINTVIRG;
 
 assign: VAR EQUAL valueAssign ;
-call: VAR POINT VAR PARG arguments PARD ;
+call: VAR POINT VAR PARG arguments? PARD ;
 
 valueAssign: value | call | creation;
 creation: 'new' VAR PARG arguments? PARD;

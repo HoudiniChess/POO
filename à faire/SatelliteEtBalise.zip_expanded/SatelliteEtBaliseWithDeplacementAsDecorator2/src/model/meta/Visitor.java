@@ -1,7 +1,6 @@
 package model.meta;
 
-import model.meta.value.NumberValue;
-import model.meta.value.SymbolValue;
+import model.meta.value.Value;
 
 public interface Visitor
 {
@@ -14,9 +13,11 @@ public interface Visitor
 
   public void visitCreation(Creation creation);
 
-  public void visitNumber(NumberValue numberValue);
+  public void visitValue(Value value);
 
-  public void visitSymbol(SymbolValue symbolValue);
+//  public void visitNumber(NumberValue numberValue);
+//
+//  public void visitSymbol(SymbolValue symbolValue);
 
   public void visitArguments(Arguments arguments);
 

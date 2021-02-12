@@ -8,6 +8,4 @@ public abstract class ValueAssign
 
   public abstract void accept(Visitor visitor);
 
-  public abstract Object getValeur();
-
 }
