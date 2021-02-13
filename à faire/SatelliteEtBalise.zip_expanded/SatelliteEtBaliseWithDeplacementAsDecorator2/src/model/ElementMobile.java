@@ -14,19 +14,12 @@ public class ElementMobile
   protected Memory memory;
   protected Point position;
   protected EventHandler eventHandler;
-  protected Manager manager;
 
   public ElementMobile(Memory memory)
   {
     eventHandler = new EventHandler();
     this.position = new Point(0, 0);
     this.memory = memory;
-
-  }
-
-  public void setManager(Manager manager)
-  {
-    this.manager = manager;
 
   }
 
@@ -54,7 +47,10 @@ public class ElementMobile
 
   public void readSensors()
   {
-    memory.tick();
+    if (getMovement().getSpeed() != 0)
+    {
+      memory.tick();
+    }
   }
 
   public void move()
@@ -83,11 +79,6 @@ public class ElementMobile
   public void setMovement(Movement depl)
   {
     this.movement = depl;
-  }
-
-  public Manager getManager()
-  {
-    return manager;
   }
 
   public Memory getMemory()

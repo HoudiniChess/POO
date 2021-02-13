@@ -89,7 +89,11 @@ public class Application
       @Override
       public void run()
       {
-        String input = "bal1 = new Balise (PointX = 400, PointY = 200, Deplacement = #horizontal, Memory = 100, Speed = 2);";
+        String input = "bal1 = new Beacon (PointX = 400, PointY = 200, Deplacement = #horizontal, Memory = 100);"
+            + "sat1 = new Satellite (PointX = 100, PointY = 50, Deplacement = #satelliteMouvement, Memory = 1000);"
+            + "sat1.start(Speed = 2);" + "bal1.start(Speed = 2);"
+            + "sat2 = new Satellite (PointX = 50, PointY = 80, Deplacement = #satelliteMouvement, Memory = 1000);"
+            + "sat1.stop();" + "sat2.start();";
         CharStream stream = CharStreams.fromString(input);
         BalSatLexer lexer = new BalSatLexer(stream);
         TokenStream tokens = new CommonTokenStream(lexer);

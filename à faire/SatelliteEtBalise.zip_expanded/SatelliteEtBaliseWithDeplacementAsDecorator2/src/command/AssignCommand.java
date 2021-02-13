@@ -1,11 +1,9 @@
 package command;
 
 import java.awt.Point;
-import java.util.List;
 
+import model.ManagerBis;
 import model.Memory;
-import model.meta.Argument;
-import model.meta.ManagerVariable;
 import movementStrategy.HorizontalMovement;
 import movementStrategy.SinusoidaleMovement;
 import movementStrategy.VerticalMovement;
@@ -13,66 +11,70 @@ import simulation.Simulation;
 
 public class AssignCommand implements ICommand
 {
+  String variable;
 
-  String PointX;
-  String PointY;
-  String mouvement;
-  String memory;
-  String speed;
-
-  public AssignCommand(List<Argument> args)
+  public AssignCommand(String variable)
   {
-    this.setUp(args);
+    this.variable = variable;
   }
 
   @Override
   public void execute(Simulation simulation)
   {
 
-    switch (mouvement)
+    if (ManagerBis.getInstance().getElementMobile().equalsIgnoreCase("Beacon"))
     {
+      switch (ManagerBis.getInstance().getMouvement())
+      {
 
-      case "satelliteMouvement":
+        case "horizontal":
 
-        simulation.addSatellite(new Point(Integer.parseInt(PointX), Integer.parseInt(PointY)), Integer.parseInt(speed),
-                                new Memory(Integer.parseInt(memory)));
-        break;
+          simulation.addBeacon(variable,
+                               new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
+                                   Integer.parseInt(ManagerBis.getInstance().getPointY())),
+                               new HorizontalMovement(0, 50, 750),
+                               new Memory(Integer.parseInt(ManagerBis.getInstance().getMemory())));
 
-      case "horizontal":
+          break;
 
-        simulation.addBeacon(new Point(Integer.parseInt(PointX), Integer.parseInt(PointY)),
-                             new VerticalMovement(Integer.parseInt(speed), 50, 750),
-                             new Memory(Integer.parseInt(memory)));
-        break;
+        case "vertical":
 
-      case "vertical":
+          simulation.addBeacon(variable,
+                               new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
+                                   Integer.parseInt(ManagerBis.getInstance().getPointY())),
+                               new VerticalMovement(Integer.parseInt("0"), 50, 750),
+                               new Memory(Integer.parseInt(ManagerBis.getInstance().getMemory())));
+          break;
 
-        simulation.addBeacon(new Point(Integer.parseInt(PointX), Integer.parseInt(PointY)),
-                             new SinusoidaleMovement(Integer.parseInt(speed), 100, 700, 50, 200),
-                             new Memory(Integer.parseInt(memory)));
-        break;
+        case "sinusoidale":
+          simulation.addBeacon(variable,
+                               new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
+                                   Integer.parseInt(ManagerBis.getInstance().getPointY())),
+                               new SinusoidaleMovement(Integer.parseInt(ManagerBis.getInstance().getSpeed()), 100, 700,
+                                   50, 200),
+                               new Memory(Integer.parseInt(ManagerBis.getInstance().getMemory())));
 
-      case "sinusoidale":
+          break;
 
-        simulation.addBeacon(new Point(Integer.parseInt(PointX), Integer.parseInt(PointY)),
-                             new HorizontalMovement(Integer.parseInt(speed), 50, 750),
-                             new Memory(Integer.parseInt(memory)));
-        break;
-
-      default:
-        System.out.println("Mouvement inconnu");
-        break;
+        default:
+          System.out.println("Mouvement inconnu");
+          break;
+      }
     }
 
-  }
+    else if (ManagerBis.getInstance().getElementMobile().equalsIgnoreCase("Satellite"))
+    {
+      simulation.addSatellite(variable,
+                              new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
+                                  Integer.parseInt(ManagerBis.getInstance().getPointY())),
+                              0, new Memory(Integer.parseInt(ManagerBis.getInstance().getPointY())));
+    }
 
-  public void setUp(List<Argument> args)
-  {
-    this.PointX = ManagerVariable.getInstance().getValues().get(args.get(0).getVariable());
-    this.PointY = ManagerVariable.getInstance().getValues().get(args.get(1).getVariable());
-    this.mouvement = ManagerVariable.getInstance().getValues().get(args.get(2).getVariable());
-    this.memory = ManagerVariable.getInstance().getValues().get(args.get(3).getVariable());
-    this.speed = ManagerVariable.getInstance().getValues().get(args.get(4).getVariable());
+    else
+    {
+      System.out.println("L'élément mobile n'existe pas");
+    }
+
   }
 
 }

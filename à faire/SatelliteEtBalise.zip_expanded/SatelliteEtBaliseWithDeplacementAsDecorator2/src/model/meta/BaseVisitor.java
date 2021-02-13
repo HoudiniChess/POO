@@ -3,6 +3,7 @@ package model.meta;
 import java.util.Iterator;
 
 import command.AssignCommand;
+import command.CallCommand;
 import model.ManagerBis;
 import model.meta.value.Value;
 
@@ -21,28 +22,25 @@ public class BaseVisitor implements Visitor
   @Override
   public void visitCall(Call call)
   {
-    switch (call.getAction())
-    {
-      case "start":
-        ManagerBis.getInstance().start(call.getVariable());
-        break;
-
-      default:
-        System.out.println("Action: " + call.getAction() + " non connue");
-        break;
-    }
-
+    call.arguments.accept(this);
+    ManagerBis.getInstance().setUpCall(call.arguments.getArguments());
+    CallCommand command = new CallCommand(call.getVariable(), call.getAction());
+    command.execute(ManagerBis.getInstance().getSimulation());
   }
 
   @Override
   public void visitAssign(Assign assign)
   {
-    // call utilité ?
-    // stockage des variable ?
+
     if (assign.getValue() instanceof Creation)
     {
       System.out.println("Assign-Creation");
+
       ((Creation) assign.getValue()).accept(this, assign);
+      Creation create = (Creation) assign.getValue();
+      ManagerBis.getInstance().setUpAssign(create.arguments.getArguments());
+      AssignCommand cmd = new AssignCommand(assign.variable);
+      cmd.execute(ManagerBis.getInstance().getSimulation());
     }
     else if (assign.getValue() instanceof Value)
     {
@@ -61,8 +59,7 @@ public class BaseVisitor implements Visitor
   public void visitCreation(Creation creation)
   {
     creation.arguments.accept(this);
-    AssignCommand cmd = new AssignCommand(creation.arguments.getArguments());
-    cmd.execute(ManagerBis.getInstance().getSimulation());
+    ManagerBis.getInstance().setUpInstance(creation.getVariable());
   }
 
   @Override
@@ -94,7 +91,6 @@ public class BaseVisitor implements Visitor
     }
     else if (argument.getValueAssign() instanceof Value)
     {
-      System.out.println("Assign-Value");
       ((Value) argument.getValueAssign()).accept(this, argument);
     }
     else if (argument.getValueAssign() instanceof Call)

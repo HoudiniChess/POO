@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import model.Beacon;
-import model.Manager;
+import model.ManagerBis;
 import model.Memory;
 import model.Satellite;
 import movementStrategy.HorizontalMovement;
@@ -21,31 +21,30 @@ class TestBeaconState
   @Test
   void testStateChange()
   {
-
+    String bal = "bal";
     Memory memory = new Memory(100);
     Memory memory2 = new Memory(1000);
     Beacon beacon = new Beacon(memory);
     Satellite sat = new Satellite(memory2);
-    Manager m = new Manager();
-    m.addBalise(beacon);
+    ManagerBis.getInstance().addBeacon(bal, beacon);
     beacon.setStandartDeepness(150);
     Movement movement = new HorizontalMovement(1, 0, 10);
     beacon.setMovement(movement);
     beacon.setCollectMovement(movement);
     assertEquals(new BeaconStateCollect().getClass(), beacon.getState().getClass());
     beacon.getMemory().addData(100);
-    m.tick();
+    ManagerBis.getInstance().tick();
     assertEquals(new BeaconStateAscend().getClass(), beacon.getState().getClass());
     beacon.getMovement().setFinish();
-    m.tick();
+    ManagerBis.getInstance().tick();
     BeaconStateSynchro stateSynchro = new BeaconStateSynchro();
     assertEquals(stateSynchro.getClass(), beacon.getState().getClass());
     ((BeaconStateSynchro) beacon.getState()).setSatSynchro(sat);
     beacon.getMemory().removeData(100);
-    m.tick();
+    ManagerBis.getInstance().tick();
     assertEquals(new BeaconStateDiving().getClass(), beacon.getState().getClass());
     beacon.getMovement().setFinish();
-    m.tick();
+    ManagerBis.getInstance().tick();
     assertEquals(new BeaconStateCollect().getClass(), beacon.getState().getClass());
   }
 

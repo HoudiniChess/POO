@@ -3,7 +3,6 @@ package visiting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
@@ -69,7 +68,7 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   public ParserRuleContext visitCommand(CommandContext ctx)
   {
     ParserRuleContext r = super.visitCommand(ctx);
-    values.put(ctx, map.get(ctx));// voir ligne 81 permets de mettre assign en tant que commande - liaison utile ?
+    values.put(ctx, map.get(ctx));
     return r;
   }
 
@@ -80,10 +79,8 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     String variable = ctx.VAR().getText();
     ValueAssign valueAssign = (ValueAssign) map.get(ctx.getChild(2));
     Assign assign = new Assign(variable, valueAssign);
-    map.put(ctx.getParent(), assign); // coucou je suis la liaison
+    map.put(ctx.getParent(), assign);
     values.put(ctx, assign);
-    ArgumentsContext context = ctx.valueAssign().creation().arguments();
-    List<ArgContext> arguments = context.arg();
 
     return r;
   }
@@ -117,6 +114,7 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     System.out.println("visitCreation");
     ParserRuleContext r = super.visitCreation(ctx);
     String variable = ctx.VAR().getText();
+    System.out.println(variable + "ffffffffffffffffffffffffffff");
     Arguments arguments = (Arguments) map.get(ctx.arguments());
     System.out.println(ctx.arguments());
     Creation creation = new Creation(variable, arguments);
