@@ -79,7 +79,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     String variable = ctx.VAR().getText();
     ValueAssign valueAssign = (ValueAssign) map.get(ctx.getChild(2));
     Assign assign = new Assign(variable, valueAssign);
-    System.out.println(ctx.getParent().getText() + "Mon ParentsssssssssssssssssssssAssign");
     map.put(ctx.getParent(), assign);
     values.put(ctx, assign);
 
@@ -95,7 +94,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     Arguments arguments = new Arguments();
     arguments = (Arguments) map.get(ctx.arguments());
     Call call = new Call(variable, action, arguments);
-    System.out.println(ctx.getParent().getText() + "Mon ParentsssssssssssssssssssssCall");
     map.put(ctx.getParent(), call);
     values.put(ctx, call);
     return r;

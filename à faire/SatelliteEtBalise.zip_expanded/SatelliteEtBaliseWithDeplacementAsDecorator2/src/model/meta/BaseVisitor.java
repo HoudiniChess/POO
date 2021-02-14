@@ -119,6 +119,7 @@ public class BaseVisitor implements Visitor, Callable<Void>
     else if (argument.getValueAssign() instanceof Call)
     {
       System.out.println("Assign-Call");
+      System.out.println(argument.getValueAssign() + " MA VALUEEEEEEEEEEEEEEEEEEEEEEE");
       argument.getValueAssign().accept(this);
     }
   }
@@ -128,7 +129,7 @@ public class BaseVisitor implements Visitor, Callable<Void>
   {
     InputStream is = System.in;
     BufferedReader br = new BufferedReader(new InputStreamReader(is));
-    System.out.println("Input Command - LIST(); pour la liste des commandes dispo");
+    System.out.println("Input Command - " + "commande.liste();" + " pour la liste des commandes dispo");
     boolean flag = true;
     do
     {

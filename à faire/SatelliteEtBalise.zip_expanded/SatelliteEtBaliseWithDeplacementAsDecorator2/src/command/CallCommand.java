@@ -69,6 +69,16 @@ public class CallCommand implements ICommand
 
         break;
 
+      case "liste":
+
+        System.out
+            .println("Créer une balise : x = new Beacon (PointX = x, PointY = x, Deplacement = #x, Memory = x); /n");
+        System.out
+            .println("Créer un satellite : x = new Satellite (PointX = x, PointY = x, Deplacement = #x, Memory = x); /n");
+        System.out.println("Lancer une balise ou un Satellite : x.start(Speed = x); /n");
+        System.out.println("Stopper une balise ou un Satellite : x.stop(); /n");
+        break;
+
       default:
         System.out.println("commande inconnue");
         break;
