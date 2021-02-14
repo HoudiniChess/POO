@@ -29,9 +29,20 @@ public class Script extends MMEntity
     return this.commands.iterator();
   }
 
+  @Override
   public void accept(Visitor visitor)
   {
     visitor.visitScript(this);
+  }
+
+  public ArrayList<ICommandLanguage> getCommands()
+  {
+    return commands;
+  }
+
+  public void setCommands(ArrayList<ICommandLanguage> commands)
+  {
+    this.commands = commands;
   }
 
 }
