@@ -125,7 +125,7 @@ public class BaseVisitor implements Visitor, Callable<Void>
   {
     InputStream is = System.in;
     BufferedReader br = new BufferedReader(new InputStreamReader(is));
-    // System.out.println("commande.liste();" + " pour la liste des commandes");
+    System.out.println("commande.liste();" + " pour la liste des commandes");
 
     boolean flag = true;
     do
