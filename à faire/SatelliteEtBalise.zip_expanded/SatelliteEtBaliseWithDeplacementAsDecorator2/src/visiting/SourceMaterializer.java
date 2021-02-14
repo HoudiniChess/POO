@@ -92,7 +92,10 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     String variable = ctx.VAR().get(0).getText();
     String action = ctx.VAR().get(1).getText();
     Arguments arguments = new Arguments();
-    arguments = (Arguments) map.get(ctx.arguments());
+    if (ctx.arguments() != null)
+    {
+      arguments = (Arguments) map.get(ctx.arguments());
+    }
     Call call = new Call(variable, action, arguments);
     map.put(ctx.getParent(), call);
     values.put(ctx, call);
@@ -102,7 +105,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   @Override
   public ParserRuleContext visitValueAssign(ValueAssignContext ctx)
   {
-    System.out.println("visitValueAssign");
     ParserRuleContext r = super.visitValueAssign(ctx);
     values.put(ctx, map.get(ctx));
     return r;
@@ -111,11 +113,9 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   @Override
   public ParserRuleContext visitCreation(CreationContext ctx)
   {
-    System.out.println("visitCreation");
     ParserRuleContext r = super.visitCreation(ctx);
     String variable = ctx.VAR().getText();
     Arguments arguments = (Arguments) map.get(ctx.arguments());
-    System.out.println(ctx.arguments());
     Creation creation = new Creation(variable, arguments);
     map.put(ctx.getParent(), creation);
     values.put(ctx, creation);
@@ -126,7 +126,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   @Override
   public ParserRuleContext visitValue(ValueContext ctx)
   {
-    System.out.println("visitValue");
     ParserRuleContext r = super.visitValue(ctx);
     if (ctx.NB() != null)
     {
@@ -147,7 +146,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   @Override
   public ParserRuleContext visitArguments(ArgumentsContext ctx)
   {
-    System.out.println("visitArguments");
     ParserRuleContext r = super.visitArguments(ctx);
     Iterator<ArgContext> itor = ctx.arg().iterator();
     ArrayList<Argument> listArguments = new ArrayList<>();
@@ -155,7 +153,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
     while (itor.hasNext())
     {
       Argument arg = (Argument) map.get(itor.next());
-      System.out.println(arg.getValueAssign());
       listArguments.add(arg);
     }
     Arguments arguments = new Arguments();
@@ -168,7 +165,6 @@ public class SourceMaterializer extends BalSatBaseVisitor<ParserRuleContext>
   @Override
   public ParserRuleContext visitArg(ArgContext ctx)
   {
-    System.out.println("visitArg");
     ParserRuleContext r = super.visitArg(ctx);
     String variable = ctx.VAR().getText();
     ValueAssign valueAssign = (ValueAssign) map.get(ctx.getChild(2));

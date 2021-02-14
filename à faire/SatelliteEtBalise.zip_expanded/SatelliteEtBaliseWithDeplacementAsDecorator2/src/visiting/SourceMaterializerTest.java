@@ -30,7 +30,7 @@ class SourceMaterializerTest
   @Test
   void testAssignBalise()
   {
-    String input = "bal = new Beacon(Memory=100);";
+    String input = "bal3 = new Beacon (PointX = 300, PointY = 200, Deplacement = #horizontal, Memory = 100); ";
     Simulation simul = new Simulation();
     BalSatParser parser = this.parserFor(input);
     ParseTree tree = parser.script();

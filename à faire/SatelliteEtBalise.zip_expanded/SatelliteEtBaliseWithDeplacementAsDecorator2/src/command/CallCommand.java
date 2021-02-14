@@ -22,6 +22,7 @@ public class CallCommand implements ICommand
   @Override
   public void execute(Simulation simulation)
   {
+
     switch (action)
     {
       case "start":
@@ -71,12 +72,11 @@ public class CallCommand implements ICommand
 
       case "liste":
 
+        System.out.println("Créer une balise : x = new Beacon (PointX = x, PointY = x, Deplacement = #x, Memory = x);");
         System.out
-            .println("Créer une balise : x = new Beacon (PointX = x, PointY = x, Deplacement = #x, Memory = x); /n");
-        System.out
-            .println("Créer un satellite : x = new Satellite (PointX = x, PointY = x, Deplacement = #x, Memory = x); /n");
-        System.out.println("Lancer une balise ou un Satellite : x.start(Speed = x); /n");
-        System.out.println("Stopper une balise ou un Satellite : x.stop(); /n");
+            .println("Créer un satellite : x = new Satellite (PointX = x, PointY = x, Deplacement = #x, Memory = x);");
+        System.out.println("Lancer une balise ou un Satellite : x.start(Speed = x);");
+        System.out.println("Stopper une balise ou un Satellite : x.stop();");
         break;
 
       default:
