@@ -42,7 +42,7 @@ public class AssignCommand implements ICommand
           simulation.addBeacon(variable,
                                new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
                                    Integer.parseInt(ManagerBis.getInstance().getPointY())),
-                               new VerticalMovement(0, 50, 750),
+                               new VerticalMovement(0, 50, 250),
                                new Memory(Integer.parseInt(ManagerBis.getInstance().getMemory())));
           break;
 
