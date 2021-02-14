@@ -3,6 +3,11 @@ package simulation;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import graphicLayer.GBounded;
 import graphicLayer.GRect;
@@ -14,11 +19,13 @@ import model.Satellite;
 import movementStrategy.Movement;
 import movementStrategy.SatelliteMovement;
 
-public class Simulation
+public class Simulation implements Runnable
 {
-  GSpace world;
-  GRect sky;
-  GRect sea;
+  protected GSpace world;
+  protected GRect sky;
+  protected GRect sea;
+  private Collection<Callable<?>> callables;
+  public ExecutorService executor;
 
   public Simulation()
   {
@@ -79,13 +86,13 @@ public class Simulation
 
   public void launch()
   {
-
     this.world.open();
     this.mainLoop();
   }
 
   private void initWorld()
   {
+    this.callables = new ArrayList<Callable<?>>();
     this.world = new GSpace("Satellite & Balises", new Dimension(800, 600));
 
     this.sky = new GRect();
@@ -99,11 +106,27 @@ public class Simulation
 
     this.world.addElement(this.sea);
     this.world.addElement(this.sky);
+    executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
   }
 
-  public static void main(String[] args)
+  @Override
+  public void run()
   {
-    new Simulation().launch();
+
+    try
+    {
+      while (true)
+      {
+        executor.invokeAll(callables);
+        Thread.sleep(50);
+        ManagerBis.getInstance().tick();
+
+      }
+    }
+    catch (InterruptedException e1)
+    {
+      e1.printStackTrace();
+    }
   }
 
 }

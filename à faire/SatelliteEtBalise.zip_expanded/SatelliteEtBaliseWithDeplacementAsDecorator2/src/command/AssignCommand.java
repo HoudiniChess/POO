@@ -42,7 +42,7 @@ public class AssignCommand implements ICommand
           simulation.addBeacon(variable,
                                new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
                                    Integer.parseInt(ManagerBis.getInstance().getPointY())),
-                               new VerticalMovement(Integer.parseInt("0"), 50, 750),
+                               new VerticalMovement(0, 50, 750),
                                new Memory(Integer.parseInt(ManagerBis.getInstance().getMemory())));
           break;
 
@@ -50,8 +50,7 @@ public class AssignCommand implements ICommand
           simulation.addBeacon(variable,
                                new Point(Integer.parseInt(ManagerBis.getInstance().getPointX()),
                                    Integer.parseInt(ManagerBis.getInstance().getPointY())),
-                               new SinusoidaleMovement(Integer.parseInt(ManagerBis.getInstance().getSpeed()), 100, 700,
-                                   50, 200),
+                               new SinusoidaleMovement(0, 100, 700, 50, 200),
                                new Memory(Integer.parseInt(ManagerBis.getInstance().getMemory())));
 
           break;

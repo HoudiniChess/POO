@@ -15,20 +15,8 @@ public interface Visitor
 
   public void visitValue(Value value);
 
-//  public void visitNumber(NumberValue numberValue);
-//
-//  public void visitSymbol(SymbolValue symbolValue);
-
   public void visitArguments(Arguments arguments);
 
   public void visitArgument(Argument argument);
-
-//  public void visitMeeting(Meeting meeting);
-//
-//  public void visitPratice(Practice practice);
-//
-//  public void visitSchedule(Schedule schedule);
-//
-//  public void visitSleeping(Sleeping sleeping);
 
 }
